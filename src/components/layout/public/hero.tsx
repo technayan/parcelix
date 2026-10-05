@@ -5,20 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 
 export function HeroSection() {
-  const [trackingId, setTrackingId] = useState("");
-  const [showResult, setShowResult] = useState(false);
-
-  const handleTrack = () => {
-    if (!trackingId.trim()) return;
-
-    setShowResult(true);
-  };
-
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden mt-16">
       {/* Background decoration */}
       <div className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
 
@@ -84,8 +74,6 @@ export function HeroSection() {
             </span>
           </div>
         </div>
-
-        {/* Tracking Card */}
 
         <div className="hidden w-full justify-center md:flex lg:justify-end">
           <Image src={HeroImage} alt="Delivery" width={500} height={500} />

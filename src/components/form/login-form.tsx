@@ -141,10 +141,10 @@ export default function LoginForm() {
           >
             {loginPending ? (
               <>
-                <Spinner /> Submitting
+                <Spinner /> Logging
               </>
             ) : (
-              "Submit"
+              "Login"
             )}
           </Button>
         </FieldGroup>
@@ -154,7 +154,7 @@ export default function LoginForm() {
 
       <GoogleLoginComponent />
 
-      <p>
+      <p className="text-center">
         Don't have an account?{" "}
         <Link href={"/register"} className="hover:text-secondary duration-300">
           Register
