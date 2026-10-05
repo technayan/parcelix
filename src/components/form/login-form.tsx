@@ -4,10 +4,18 @@ import { useLogin } from "@/hooks";
 import { loginSchema } from "@/validation";
 import { useForm } from "@tanstack/react-form";
 import { Eye, EyeClosed } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import GoogleLoginComponent from "../modules/google-login/google-login";
 import { Button } from "../ui/button";
-import { Field, FieldError, FieldGroup, FieldLabel } from "../ui/field";
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldSeparator,
+} from "../ui/field";
 import { Input } from "../ui/input";
 import { Spinner } from "../ui/spinner";
 import { toast } from "../ui/toast";
@@ -141,6 +149,17 @@ export default function LoginForm() {
           </Button>
         </FieldGroup>
       </form>
+
+      <FieldSeparator> Or</FieldSeparator>
+
+      <GoogleLoginComponent />
+
+      <p>
+        Don't have an account?{" "}
+        <Link href={"/register"} className="hover:text-secondary duration-300">
+          Register
+        </Link>
+      </p>
     </div>
   );
 }
