@@ -154,12 +154,15 @@ export default function LoginForm() {
 
       <GoogleLoginComponent />
 
-      <p className="text-center">
+      <div className="text-center text-sm text-muted-foreground">
         Don't have an account?{" "}
-        <Link href={"/register"} className="hover:text-secondary duration-300">
+        <Link
+          href="/register"
+          className="font-medium underline underline-offset-4 hover:text-primary"
+        >
           Register
         </Link>
-      </p>
+      </div>
     </div>
   );
 }

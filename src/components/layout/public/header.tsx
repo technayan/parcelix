@@ -88,14 +88,24 @@ export default function Header() {
 
         <div className="flex items-center gap-3">
           {!isLoggedIn && (
-            <Button
-              variant="outline"
-              render={<Link href="/login">Login</Link>}
-              nativeButton={false}
-              className="bg-secondary text-white hover:bg-primary hover:text-white duration-300"
-            >
-              Login
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                render={<Link href="/register">Register</Link>}
+                nativeButton={false}
+                className="bg-primary text-white hover:bg-secondary hover:text-white duration-300"
+              >
+                Register
+              </Button>
+              <Button
+                variant="outline"
+                render={<Link href="/login">Login</Link>}
+                nativeButton={false}
+                className="bg-secondary text-white hover:bg-primary hover:text-white duration-300"
+              >
+                Login
+              </Button>
+            </div>
           )}
           {isLoggedIn && (
             <Button
