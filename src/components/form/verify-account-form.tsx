@@ -1,6 +1,7 @@
 "use client";
 
 import { useVerifyAccount } from "@/hooks";
+import { useVerifyCourierAccount } from "@/hooks/courier.hook";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -32,8 +33,9 @@ export default function VerifyAccountForm({
   const [resendTimer, setResendTimer] = useState(RESEND_COOLDOWN);
 
   const { mutate: verifyCustomer } = useVerifyAccount();
+  const { mutate: verifyCourier } = useVerifyCourierAccount();
 
-  const verify = verifyCustomer;
+  const verify = mode === "customer" ? verifyCustomer : verifyCourier;
 
   const email = searchParams.get("email") || "";
 

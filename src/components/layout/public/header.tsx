@@ -82,7 +82,12 @@ export default function Header() {
           ))}
 
           {isLoggedIn && role && (
-            <Link href={dashboardRoute[role]}>Dashboard</Link>
+            <Link
+              href={dashboardRoute[role]}
+              className="hover:text-secondary duration-300"
+            >
+              Dashboard
+            </Link>
           )}
         </nav>
 
@@ -91,11 +96,11 @@ export default function Header() {
             <div className="flex items-center gap-2">
               <Button
                 variant="outline"
-                render={<Link href="/register">Register</Link>}
+                render={<Link href="/apply">Apply as Courier</Link>}
                 nativeButton={false}
                 className="bg-primary text-white hover:bg-secondary hover:text-white duration-300"
               >
-                Register
+                Apply as Courier
               </Button>
               <Button
                 variant="outline"

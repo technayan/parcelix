@@ -290,7 +290,11 @@ export function RegisterForm() {
             }}
           </form.Field>
 
-          <Button disabled={registrationPending} type="submit">
+          <Button
+            disabled={registrationPending}
+            type="submit"
+            className="hover:bg-secondary"
+          >
             {registrationPending ? (
               <>
                 <Spinner /> Registering
