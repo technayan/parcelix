@@ -15,3 +15,9 @@ export interface VerifyAccountPayload {
   email: string;
   otp: string;
 }
+
+export interface UpdateProfilePayload {
+  name: string;
+  phone?: string;
+  address?: string;
+}

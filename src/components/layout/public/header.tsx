@@ -24,7 +24,7 @@ export default function Header() {
   const dashboardRoute: Record<UserRole, string> = {
     ADMIN: "/admin",
     COURIER: "/courier",
-    CUSTOMER: "/customer",
+    CUSTOMER: "/dashboard",
   };
 
   const { data, isLoading } = useGetMe();

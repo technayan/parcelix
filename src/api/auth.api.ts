@@ -2,6 +2,7 @@ import { apiClient } from "@/lib/apiClient";
 import type {
   LoginPayload,
   RegistrationPayload,
+  UpdateProfilePayload,
   VerifyAccountPayload,
 } from "@/types/auth.type";
 
@@ -30,4 +31,8 @@ export function getMe() {
 
 export function userLogout() {
   return apiClient("/auth/logout", { method: "POST" });
+}
+
+export function updateProfile(payload: UpdateProfilePayload) {
+  return apiClient("/users/profile", { method: "PATCH", body: payload });
 }

@@ -47,3 +47,20 @@ export const customerRegistrationSchema = z
     message: "Password do not match",
     path: ["confirmPassword"],
   });
+
+export const updateProfileSchema = z.object({
+  name: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must not exceed 100 characters"),
+
+  phone: z
+    .string()
+    .min(11, "Enter a valid phone number")
+    .max(14, "Enter a valid phone number"),
+
+  address: z
+    .string()
+    .min(5, "Address must be at least 5 characters")
+    .max(500, "Address must not exceed 500 characters"),
+});
