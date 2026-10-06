@@ -1,4 +1,4 @@
-const prefix = "/customer";
+const prefix = "/dashboard";
 
 export const customerRoutes = [
   {

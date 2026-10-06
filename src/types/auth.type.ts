@@ -21,3 +21,9 @@ export interface UpdateProfilePayload {
   phone?: string;
   address?: string;
 }
+
+export interface ResetPasswordPayload {
+  email: string;
+  otp: string;
+  newPassword: string;
+}

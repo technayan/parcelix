@@ -16,8 +16,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useGetMe } from "@/hooks";
+import { useChangePassword, useGetMe } from "@/hooks";
 import { UserInfo, UserRole } from "@/types";
+import { useRouter } from "next/navigation";
 
 const roleLabels: Record<UserRole, string> = {
   CUSTOMER: "Customer",
@@ -34,6 +35,7 @@ const statusLabels = {
 export function ProfileInfo() {
   const { data } = useGetMe();
   const user: UserInfo = data.data;
+  const router = useRouter();
 
   const initials = user.name
     .split(" ")
@@ -48,6 +50,16 @@ export function ProfileInfo() {
   });
 
   const isCourier = user.role === "COURIER";
+
+  const { mutate: changePassword } = useChangePassword();
+
+  const handleChangePassword = () => {
+    changePassword({
+      email: user.email,
+    });
+    const params = new URLSearchParams({ email: user.email });
+    router.push(`/reset-password?${params.toString()}`);
+  };
 
   return (
     <div className="space-y-6">
@@ -252,7 +264,9 @@ export function ProfileInfo() {
               </p>
             </div>
 
-            <Button variant="outline">Change Password</Button>
+            <Button variant="outline" onClick={handleChangePassword}>
+              Change Password
+            </Button>
           </div>
         </CardContent>
       </Card>

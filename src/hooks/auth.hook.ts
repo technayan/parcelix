@@ -1,6 +1,8 @@
 import {
+  changePassword,
   getMe,
   googleOAuth,
+  resetPassword,
   updateProfile,
   userLogin,
   userLogout,
@@ -54,5 +56,17 @@ export function useUpdateProfile() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
     },
+  });
+}
+
+export function useChangePassword() {
+  return useMutation({
+    mutationFn: changePassword,
+  });
+}
+
+export function useResetPassword() {
+  return useMutation({
+    mutationFn: resetPassword,
   });
 }

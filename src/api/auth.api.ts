@@ -2,6 +2,7 @@ import { apiClient } from "@/lib/apiClient";
 import type {
   LoginPayload,
   RegistrationPayload,
+  ResetPasswordPayload,
   UpdateProfilePayload,
   VerifyAccountPayload,
 } from "@/types/auth.type";
@@ -35,4 +36,12 @@ export function userLogout() {
 
 export function updateProfile(payload: UpdateProfilePayload) {
   return apiClient("/users/profile", { method: "PATCH", body: payload });
+}
+
+export function changePassword(payload: { email: string }) {
+  return apiClient("/auth/forgot-password", { method: "POST", body: payload });
+}
+
+export function resetPassword(payload: ResetPasswordPayload) {
+  return apiClient("/auth/reset-password", { method: "POST", body: payload });
 }
