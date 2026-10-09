@@ -3,6 +3,7 @@ import {
   createShipment,
   getMyShipments,
   payShipment,
+  shipmentDetails,
 } from "@/api";
 import type { MyShipmentsParams } from "@/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -39,3 +40,11 @@ export const usePayShipment = () => {
     mutationFn: (shipmentId: string) => payShipment(shipmentId),
   });
 };
+
+export function useShipmentDetails(shipmentId: string) {
+  return useQuery({
+    queryKey: ["shipment-details", shipmentId],
+    queryFn: () => shipmentDetails(shipmentId),
+    enabled: Boolean(shipmentId),
+  });
+}

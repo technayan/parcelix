@@ -31,3 +31,7 @@ export function payShipment(shipmentId: string) {
     body: { shipmentId },
   });
 }
+
+export function shipmentDetails(shipmentId: string) {
+  return apiClient(`/shipments/details/${shipmentId}`);
+}

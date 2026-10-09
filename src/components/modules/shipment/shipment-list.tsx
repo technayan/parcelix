@@ -34,6 +34,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { ShipmentDetailsDialog } from "./shipment-details-dialog";
 
 const PAGE_SIZE = 10;
 
@@ -74,6 +75,8 @@ export default function MyShipmentsClient() {
   const [selectedShipment, setSelectedShipment] = useState<MyShipment | null>(
     null,
   );
+  const [detailsOpen, setDetailsOpen] = useState(false);
+  const [cancelOpen, setCancelOpen] = useState(false);
 
   const debouncedSearch = useDebounce(searchTerm);
 
@@ -123,6 +126,7 @@ export default function MyShipmentsClient() {
         });
 
         setSelectedShipment(null);
+        setCancelOpen(false);
       },
       onError: (error) => {
         toast.add({
@@ -311,10 +315,11 @@ export default function MyShipmentsClient() {
                                 {canCancel && (
                                   <Button
                                     size="sm"
-                                    variant="outline"
-                                    onClick={() =>
-                                      setSelectedShipment(shipment)
-                                    }
+                                    variant="destructive"
+                                    onClick={() => {
+                                      setCancelOpen(true);
+                                      setSelectedShipment(shipment);
+                                    }}
                                   >
                                     <Ban className="mr-1 size-3.5" />
                                     Cancel
@@ -325,11 +330,11 @@ export default function MyShipmentsClient() {
                                   <Button
                                     size="sm"
                                     variant="outline"
-                                    onClick={() =>
-                                      router.push(
-                                        `/dashboard/shipments/${shipment.id}`,
-                                      )
-                                    }
+                                    className="hover:bg-primary hover:text-white"
+                                    onClick={() => {
+                                      setSelectedShipment(shipment);
+                                      setDetailsOpen(true);
+                                    }}
                                   >
                                     Details
                                   </Button>
@@ -342,6 +347,13 @@ export default function MyShipmentsClient() {
                     )}
                   </TableBody>
                 </Table>
+
+                {/* Shipment Details Dialog */}
+                <ShipmentDetailsDialog
+                  shipmentId={selectedShipment?.id || null}
+                  open={detailsOpen}
+                  onOpenChange={setDetailsOpen}
+                />
               </div>
 
               {!isLoading && pagination.total > 0 && (
@@ -385,10 +397,14 @@ export default function MyShipmentsClient() {
         </CardContent>
       </Card>
 
+      {/* Cancel Shipment Dialog */}
       <Dialog
-        open={!!selectedShipment}
+        open={cancelOpen}
         onOpenChange={(open) => {
-          if (!open && !isCancelling) setSelectedShipment(null);
+          if (!open && !isCancelling) {
+            setCancelOpen(false);
+            setSelectedShipment(null);
+          }
         }}
       >
         <DialogContent className="sm:max-w-md">
@@ -407,7 +423,10 @@ export default function MyShipmentsClient() {
             <Button
               variant="outline"
               disabled={isCancelling}
-              onClick={() => setSelectedShipment(null)}
+              onClick={() => {
+                setCancelOpen(false);
+                setSelectedShipment(null);
+              }}
             >
               Keep Shipment
             </Button>
