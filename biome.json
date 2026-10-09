@@ -26,6 +26,9 @@
       "a11y": {
         "noLabelWithoutControl": "info",
         "useValidAriaRole": "info"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "info"
       }
     },
     "domains": {
