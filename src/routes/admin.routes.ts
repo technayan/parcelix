@@ -12,6 +12,10 @@ export const adminRoutes = [
         title: "Courier Management",
         url: `${prefix}/courier-management`,
       },
+      {
+        title: "Shipment Management",
+        url: `${prefix}/shipment-management`,
+      },
     ],
   },
   {

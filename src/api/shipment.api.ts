@@ -4,7 +4,9 @@ import type {
   ICreateShipmentPayload,
   MyShipment,
   MyShipmentsParams,
+  Shipment,
 } from "@/types";
+import type { AllShipmentsParams } from "../types/shipment.type";
 
 export function createShipment(payload: ICreateShipmentPayload) {
   return apiClient("/shipments", {
@@ -40,5 +42,18 @@ export function requestPickup(shipmentId: string) {
   return apiClient("/shipments/request-pickup", {
     method: "PATCH",
     body: { shipmentId },
+  });
+}
+
+export function getAllShipments(params: AllShipmentsParams) {
+  return apiClient<ApiResponse<Shipment[]>>("/shipments", {
+    params,
+  });
+}
+
+export function assignCourier(shipmentId: string, courierId: string) {
+  return apiClient(`/shipments/assign-courier/${shipmentId}`, {
+    method: "PATCH",
+    body: { courierId },
   });
 }

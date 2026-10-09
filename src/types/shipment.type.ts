@@ -143,3 +143,30 @@ export interface DestinationZone {
 export interface DestinationHub {
   name: string;
 }
+
+export interface AllShipmentsParams {
+  page?: number;
+  limit?: number;
+  searchTerm?: string;
+  status?: string;
+  sortBy?: string;
+  sortOrder?: "desc" | "asc";
+}
+
+export interface Shipment {
+  id: string;
+  trackingId: string;
+  senderName: string;
+  courier?: ICourier;
+  originHub: OriginHub;
+  destinationHub: DestinationHub;
+  status: string;
+}
+
+export interface ICourier {
+  user: IUser;
+}
+
+export interface IUser {
+  name: string;
+}
