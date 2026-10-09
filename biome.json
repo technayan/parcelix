@@ -24,7 +24,8 @@
     "rules": {
       "recommended": true,
       "a11y": {
-        "noLabelWithoutControl": "info"
+        "noLabelWithoutControl": "info",
+        "useValidAriaRole": "info"
       }
     },
     "domains": {

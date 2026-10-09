@@ -15,7 +15,7 @@ export interface UserInfo {
   courier: Courier | null;
 }
 
-export interface Customer {
+interface Customer {
   id: string;
   userId: string;
   address?: string;
@@ -23,7 +23,7 @@ export interface Customer {
   updatedAt: string;
 }
 
-export interface Courier {
+interface Courier {
   id: string;
   userId: string;
   address?: string;

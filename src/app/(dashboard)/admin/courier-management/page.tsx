@@ -1,4 +1,4 @@
-import CourierManagement from "@/components/modules/courier-management/courier-management";
+import CourierManagement from "@/components/modules/courier-approval/courier-management";
 
 export default function page() {
   return (

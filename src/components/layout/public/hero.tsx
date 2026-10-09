@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -39,13 +40,15 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button
-              size="lg"
-              className="bg-orange-500 px-5 text-white shadow-lg shadow-orange-500/20 hover:bg-orange-600"
-            >
-              Create a shipment
-              <ArrowRight className="ml-2 size-4" />
-            </Button>
+            <Link href="/shipment" className="">
+              <Button
+                size="lg"
+                className="bg-secondary px-5 flex items-center text-white hover:bg-primary duration-300"
+              >
+                Create a shipment
+                <ArrowRight className="ml-2 size-4" />
+              </Button>
+            </Link>
 
             <Button
               size="lg"

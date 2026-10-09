@@ -14,8 +14,8 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { adminRoutes, courierRoutes, customerRoutes } from "@/routes";
-import { UserRole } from "@/types";
-import { SidebarItems } from "@/types/sidebar.type";
+import type { UserRole } from "@/types";
+import type { SidebarItems } from "@/types/sidebar.type";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
