@@ -1,15 +1,13 @@
 import {
   changePassword,
-  getMe,
   googleOAuth,
   resetPassword,
-  updateProfile,
   userLogin,
   userLogout,
   userRegistration,
   verifyAccount,
 } from "@/api";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
 export function useLogin() {
   return useMutation({
@@ -35,27 +33,9 @@ export function useGoogleOAuth() {
   });
 }
 
-export function useGetMe() {
-  return useQuery({
-    queryKey: ["user"],
-    queryFn: getMe,
-    retry: false,
-  });
-}
-
 export function useLogout() {
   return useMutation({
     mutationFn: userLogout,
-  });
-}
-
-export function useUpdateProfile() {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: updateProfile,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["user"] });
-    },
   });
 }
 
