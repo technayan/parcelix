@@ -3,6 +3,7 @@ import {
   createShipment,
   getMyShipments,
   payShipment,
+  requestPickup,
   shipmentDetails,
 } from "@/api";
 import type { MyShipmentsParams } from "@/types";
@@ -48,3 +49,21 @@ export function useShipmentDetails(shipmentId: string) {
     enabled: Boolean(shipmentId),
   });
 }
+
+export const useRequestPickup = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (shipmentId: string) => requestPickup(shipmentId),
+
+    onSuccess: async (_response, shipmentId) => {
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: ["my-shipments"],
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ["shipment-details", shipmentId],
+        }),
+      ]);
+    },
+  });
+};

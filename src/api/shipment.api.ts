@@ -35,3 +35,10 @@ export function payShipment(shipmentId: string) {
 export function shipmentDetails(shipmentId: string) {
   return apiClient(`/shipments/details/${shipmentId}`);
 }
+
+export function requestPickup(shipmentId: string) {
+  return apiClient("/shipments/request-pickup", {
+    method: "PATCH",
+    body: { shipmentId },
+  });
+}

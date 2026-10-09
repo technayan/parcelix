@@ -12,6 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Spinner } from "@/components/ui/spinner";
 import {
   Table,
   TableBody,
@@ -21,7 +22,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { toast } from "@/components/ui/toast";
-import { useCancelShipment, useGetMyShipments, usePayShipment } from "@/hooks";
+import {
+  useCancelShipment,
+  useGetMyShipments,
+  usePayShipment,
+  useRequestPickup,
+} from "@/hooks";
 import useDebounce from "@/hooks/debounce.hook";
 import type { MyShipment } from "@/types";
 import {
@@ -33,7 +39,7 @@ import {
   Truck,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useOptimistic, useState, useTransition } from "react";
 import { ShipmentDetailsDialog } from "./shipment-details-dialog";
 
 const PAGE_SIZE = 10;
@@ -91,7 +97,22 @@ export default function MyShipmentsClient() {
 
   const { mutate: payForShipment, isPending: isPaying } = usePayShipment();
 
+  const { mutateAsync: requestPickup, isPending: isRequesting } =
+    useRequestPickup();
+
   const shipments: MyShipment[] = data?.data ?? [];
+
+  const [isTransitionPending, startTransition] = useTransition();
+
+  const [optimisticShipments, setOptimisticShipments] = useOptimistic(
+    shipments,
+    (currentShipments, shipmentId: string) =>
+      currentShipments.map((shipment) =>
+        shipment.id === shipmentId
+          ? { ...shipment, status: "PICKUP_REQUESTED" }
+          : shipment,
+      ),
+  );
 
   const pagination = data?.meta ?? {
     page: 1,
@@ -174,6 +195,68 @@ export default function MyShipmentsClient() {
     });
   };
 
+  // const handleRequestPickup = (shipmentId: string) => {
+  //   requestPickup(shipmentId, {
+  //     onSuccess: (res) => {
+  //       if (!res.success) {
+  //         toast.add({
+  //           title: "Request for Pick Up Failed",
+  //           description:
+  //             res.message ||
+  //             "Unable to send pick up request for this shipment.",
+  //           type: "error",
+  //         });
+  //         return;
+  //       }
+
+  //       toast.add({
+  //         title: "Requested Seccessfully",
+  //         description: "Your request for pick up has sent successfully.",
+  //         type: "success",
+  //       });
+  //     },
+  //     onError: (error) => {
+  //       toast.add({
+  //         title: "Pick Up Request Failed",
+  //         description: error.message || "Please try again.",
+  //         type: "error",
+  //       });
+  //     },
+  //   });
+  // };
+
+  const handleRequestPickup = (shipmentId: string) => {
+    startTransition(async () => {
+      setOptimisticShipments(shipmentId);
+
+      try {
+        const res = await requestPickup(shipmentId);
+
+        if (!res.success) {
+          toast.add({
+            title: "Pickup Request Failed",
+            description: res.message || "Unable to send pickup request.",
+            type: "error",
+          });
+          return;
+        }
+
+        toast.add({
+          title: "Pickup Requested Successfully",
+          description: "Your pickup request has been sent successfully.",
+          type: "success",
+        });
+      } catch (error) {
+        toast.add({
+          title: "Pickup Request Failed",
+          description:
+            error instanceof Error ? error.message : "Please try again.",
+          type: "error",
+        });
+      }
+    });
+  };
+
   return (
     <div>
       <Card>
@@ -246,7 +329,7 @@ export default function MyShipmentsClient() {
                         </TableCell>
                       </TableRow>
                     ) : (
-                      shipments.map((shipment) => {
+                      optimisticShipments.map((shipment) => {
                         const canPay = shipment.status === "PENDING_PAYMENT";
 
                         const canCancel = CANCELLABLE_STATUSES.includes(
@@ -323,6 +406,28 @@ export default function MyShipmentsClient() {
                                   >
                                     <Ban className="mr-1 size-3.5" />
                                     Cancel
+                                  </Button>
+                                )}
+                                {shipment.status === "PAID" && (
+                                  <Button
+                                    size="sm"
+                                    variant="default"
+                                    className="bg-secondary hover:bg-primary"
+                                    disabled={isRequesting}
+                                    onClick={() => {
+                                      handleRequestPickup(shipment.id);
+                                    }}
+                                  >
+                                    {isRequesting ? (
+                                      <>
+                                        <Spinner /> Requesting
+                                      </>
+                                    ) : (
+                                      <>
+                                        <Truck />
+                                        Request Pickup
+                                      </>
+                                    )}
                                   </Button>
                                 )}
 
