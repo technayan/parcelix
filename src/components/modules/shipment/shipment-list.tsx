@@ -413,7 +413,9 @@ export default function MyShipmentsClient() {
                                     size="sm"
                                     variant="default"
                                     className="bg-secondary hover:bg-primary"
-                                    disabled={isRequesting}
+                                    disabled={
+                                      isRequesting || isTransitionPending
+                                    }
                                     onClick={() => {
                                       handleRequestPickup(shipment.id);
                                     }}

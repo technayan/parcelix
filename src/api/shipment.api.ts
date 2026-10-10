@@ -6,7 +6,12 @@ import type {
   MyShipmentsParams,
   Shipment,
 } from "@/types";
-import type { AllShipmentsParams } from "../types/shipment.type";
+import type {
+  AllShipmentsParams,
+  AssignedShipment,
+  AssignedShipmentParams,
+  UpdateShipmentStatusPayload,
+} from "../types/shipment.type";
 
 export function createShipment(payload: ICreateShipmentPayload) {
   return apiClient("/shipments", {
@@ -55,5 +60,18 @@ export function assignCourier(shipmentId: string, courierId: string) {
   return apiClient(`/shipments/assign-courier/${shipmentId}`, {
     method: "PATCH",
     body: { courierId },
+  });
+}
+
+export function getAssignedShipments(params: AssignedShipmentParams) {
+  return apiClient<ApiResponse<AssignedShipment[]>>("/shipments/assigned", {
+    params,
+  });
+}
+
+export function updateShipmentStatus(payload: UpdateShipmentStatusPayload) {
+  return apiClient(`/shipments/update-status/${payload.shipmentId}`, {
+    method: "PATCH",
+    body: { status: payload.status, returnReason: payload.returnReason },
   });
 }

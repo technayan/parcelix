@@ -170,3 +170,33 @@ export interface ICourier {
 export interface IUser {
   name: string;
 }
+
+export interface AssignedShipmentParams {
+  page?: number;
+  limit?: number;
+  searchTerm?: string;
+  status?: string;
+  sortBy?: string;
+  sortOrder?: "desc" | "asc";
+}
+
+export interface AssignedShipment {
+  id: string;
+  courierId: string;
+  customerId: string;
+  senderName: string;
+  receiverName: string;
+  senderPhone: string;
+  receiverPhone: string;
+  status: string;
+  originZone: OriginZone;
+  originHub: OriginHub;
+  destinationZone: DestinationZone;
+  destinationHub: DestinationHub;
+}
+
+export interface UpdateShipmentStatusPayload {
+  shipmentId: string;
+  status: string;
+  returnReason?: string;
+}

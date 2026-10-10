@@ -3,12 +3,18 @@ import {
   cancelShipment,
   createShipment,
   getAllShipments,
+  getAssignedShipments,
   getMyShipments,
   payShipment,
   requestPickup,
   shipmentDetails,
+  updateShipmentStatus,
 } from "@/api";
-import type { AllShipmentsParams, MyShipmentsParams } from "@/types";
+import type {
+  AllShipmentsParams,
+  AssignedShipmentParams,
+  MyShipmentsParams,
+} from "@/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useCreateShipment = () => {
@@ -96,3 +102,26 @@ export const useAssignCourier = () => {
     },
   });
 };
+
+export function useGetAssignedShipments(params: AssignedShipmentParams) {
+  return useQuery({
+    queryKey: ["assigned-shipments", params],
+    queryFn: () => getAssignedShipments(params),
+  });
+}
+
+export function useUpdateShipmentStatus() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: updateShipmentStatus,
+    onSuccess: (_response, shipmentId) => {
+      queryClient.invalidateQueries({
+        queryKey: ["assigned-shipments"],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["shipment-details", shipmentId],
+      });
+    },
+  });
+}

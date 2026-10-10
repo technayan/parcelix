@@ -9,8 +9,8 @@ export const courierRoutes = [
         url: `${prefix}`,
       },
       {
-        title: "Assigned",
-        url: `${prefix}/approve-courier`,
+        title: "Assigned Shipments",
+        url: `${prefix}/assigned-shipments`,
       },
       {
         title: "Stats",
