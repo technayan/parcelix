@@ -1,5 +1,11 @@
 import { apiClient } from "@/lib/apiClient";
-import type { UpdateProfilePayload } from "@/types";
+import type {
+  ApiResponse,
+  TUser,
+  UpdateProfilePayload,
+  UpdateUserStatusPayload,
+  UsersParams,
+} from "@/types";
 
 export function getMe() {
   return apiClient("/auth/profile");
@@ -16,5 +22,18 @@ export function updateProfilePhoto(file: File) {
   return apiClient("/users/profile-photo", {
     method: "PATCH",
     body: formData,
+  });
+}
+
+export function getAllUsers(params: UsersParams) {
+  return apiClient<ApiResponse<TUser[]>>("/users", {
+    params,
+  });
+}
+
+export function updateUserStatus(payload: UpdateUserStatusPayload) {
+  return apiClient(`/users/update-status/${payload.userId}`, {
+    method: "PATCH",
+    body: { status: payload.status },
   });
 }

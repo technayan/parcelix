@@ -36,3 +36,31 @@ interface Courier {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface UsersParams {
+  page?: number;
+  limit?: number;
+  searchTerm?: string;
+  status?: "ACTIVE" | "BLOCKED" | "DELETED";
+  emailVerified?: boolean;
+  role?: "CUSTOMER" | "COURIER" | "ADMIN";
+  sortBy?: string;
+  sortOrder?: "desc" | "asc";
+}
+
+export interface TUser {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  profilePhoto?: string;
+  role: "CUSTOMER" | "COURIER" | "ADMIN";
+  status: "ACTIVE" | "BLOCKED" | "DELETED";
+}
+
+export interface UpdateUserStatusPayload {
+  userId: string;
+  status: string;
+}
+
+export type UserStatus = "ACTIVE" | "BLOCKED" | "DELETED";

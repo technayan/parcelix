@@ -22,14 +22,6 @@ export function CourierTable({
   loading,
   onReview,
 }: CourierTableProps) {
-  if (loading) {
-    return (
-      <div className="py-12 text-center text-sm text-muted-foreground">
-        Loading couriers...
-      </div>
-    );
-  }
-
   return (
     <div className="overflow-x-auto rounded-md border">
       <Table>
@@ -44,45 +36,53 @@ export function CourierTable({
         </TableHeader>
 
         <TableBody>
-          {couriers.map((courier) => (
-            <TableRow key={courier.id}>
-              <TableCell>
-                <div>
-                  <p className="font-medium">{courier.user.name}</p>
+          {loading
+            ? Array.from({ length: 5 }).map((_, index) => (
+                <TableRow key={index}>
+                  <TableCell colSpan={5}>
+                    <div className="h-10 animate-pulse rounded bg-muted" />
+                  </TableCell>
+                </TableRow>
+              ))
+            : couriers.map((courier) => (
+                <TableRow key={courier.id}>
+                  <TableCell>
+                    <div>
+                      <p className="font-medium">{courier.user.name}</p>
 
-                  <p className="text-xs text-muted-foreground">
-                    {courier.user.email}
-                  </p>
-                </div>
-              </TableCell>
+                      <p className="text-xs text-muted-foreground">
+                        {courier.user.email}
+                      </p>
+                    </div>
+                  </TableCell>
 
-              <TableCell>{courier.user.phone || "—"}</TableCell>
+                  <TableCell>{courier.user.phone || "—"}</TableCell>
 
-              <TableCell>
-                <StatusBadge status={courier.verificationStatus} />
-              </TableCell>
+                  <TableCell>
+                    <StatusBadge status={courier.verificationStatus} />
+                  </TableCell>
 
-              <TableCell>
-                {new Date(courier.createdAt).toLocaleDateString("en-US", {
-                  day: "numeric",
-                  month: "short",
-                  year: "numeric",
-                })}
-              </TableCell>
+                  <TableCell>
+                    {new Date(courier.createdAt).toLocaleDateString("en-US", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </TableCell>
 
-              <TableCell className="text-right">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-centers"
-                  onClick={() => onReview(courier)}
-                >
-                  <Eye className="size-4" />
-                  Review
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
+                  <TableCell className="text-right">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex items-centers"
+                      onClick={() => onReview(courier)}
+                    >
+                      <Eye className="size-4" />
+                      Review
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
         </TableBody>
       </Table>
     </div>

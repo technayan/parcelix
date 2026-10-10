@@ -258,14 +258,13 @@ export default function ShipmentManagement() {
 
                     <TableBody>
                       {isLoading ? (
-                        <TableRow>
-                          <TableCell colSpan={6} className="py-12 text-center">
-                            <LoaderCircle className="mx-auto size-5 animate-spin" />
-                            <p className="mt-2 text-sm text-muted-foreground">
-                              Loading shipments...
-                            </p>
-                          </TableCell>
-                        </TableRow>
+                        Array.from({ length: 5 }).map((_, index) => (
+                          <TableRow key={index}>
+                            <TableCell colSpan={6}>
+                              <div className="h-10 animate-pulse rounded bg-muted" />
+                            </TableCell>
+                          </TableRow>
+                        ))
                       ) : visibleShipments.length === 0 ? (
                         <TableRow>
                           <TableCell colSpan={6} className="py-12 text-center">
@@ -290,7 +289,7 @@ export default function ShipmentManagement() {
                                 {shipment.trackingId}
                               </p>
                               <p className="mt-1 text-xs text-muted-foreground">
-                                {shipment.id.slice(0, 8)}
+                                {shipment.id}
                               </p>
                             </TableCell>
 
@@ -327,8 +326,9 @@ export default function ShipmentManagement() {
                               </Badge>
                             </TableCell>
 
-                            <TableCell className="text-right flex flex-col justify-center items-center gap-1">
-                              {shipment.status === "PICKUP_REQUESTED" && (
+                            <TableCell className="text-right">
+                              <div className="flex flex-col gap-1">
+                                {/* {shipment.status === "PICKUP_REQUESTED" && ( */}
                                 <Button
                                   size="sm"
                                   className="bg-[#f97316] text-white hover:bg-primary"
@@ -337,18 +337,19 @@ export default function ShipmentManagement() {
                                 >
                                   Assign Courier
                                 </Button>
-                              )}
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                className="hover:bg-primary hover:text-white"
-                                onClick={() => {
-                                  setSelectedShipment(shipment);
-                                  setDetailsOpen(true);
-                                }}
-                              >
-                                Details
-                              </Button>
+                                {/* )} */}
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="hover:bg-primary hover:text-white"
+                                  onClick={() => {
+                                    setSelectedShipment(shipment);
+                                    setDetailsOpen(true);
+                                  }}
+                                >
+                                  Details
+                                </Button>
+                              </div>
                             </TableCell>
                           </TableRow>
                         ))
