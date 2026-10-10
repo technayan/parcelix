@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 export default function layout({ children }: { children: ReactNode }) {
   return (
     <AuthGuard>
-      <RoleGuard roles={["CUSTOMER"]}>
+      <RoleGuard roles={["CUSTOMER", "ADMIN"]}>
         <main className="flex-1">{children}</main>
       </RoleGuard>
     </AuthGuard>

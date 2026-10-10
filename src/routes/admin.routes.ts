@@ -20,6 +20,10 @@ export const adminRoutes = [
         title: "User Management",
         url: `${prefix}/user-management`,
       },
+      {
+        title: "Statistics",
+        url: `${prefix}/statistics`,
+      },
     ],
   },
   {
