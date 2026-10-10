@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "@/components/ui/toast";
 import { useChangePassword, useGetMe, useUpdateProfilePhoto } from "@/hooks";
-import type { UserInfo, UserRole } from "@/types";
+import type { UserInfo, UserRole } from "@/types/user.type";
 import {
   BadgeCheck,
   CalendarDays,

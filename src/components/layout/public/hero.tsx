@@ -49,14 +49,6 @@ export function HeroSection() {
                 <ArrowRight className="ml-2 size-4" />
               </Button>
             </Link>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-slate-200 dark:border-slate-700"
-            >
-              Explore how it works
-            </Button>
           </div>
 
           {/* Highlights */}

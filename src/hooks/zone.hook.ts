@@ -1,5 +1,5 @@
 import { getZones } from "@/api";
-import type { ZoneParams } from "@/types";
+import type { ZoneParams } from "@/types/zone.type";
 import { useQuery } from "@tanstack/react-query";
 
 export function useGetZones(params: ZoneParams) {

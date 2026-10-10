@@ -6,7 +6,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { useLogout } from "@/hooks";
-import type { UserRole } from "@/types";
+import type { UserRole } from "@/types/user.type";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";

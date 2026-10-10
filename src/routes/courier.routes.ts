@@ -13,8 +13,8 @@ export const courierRoutes = [
         url: `${prefix}/assigned-shipments`,
       },
       {
-        title: "Stats",
-        url: `${prefix}/stats`,
+        title: "Statistics",
+        url: `${prefix}/statistics`,
       },
     ],
   },

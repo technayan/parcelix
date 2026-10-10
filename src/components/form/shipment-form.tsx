@@ -6,7 +6,7 @@ import { toast } from "@/components/ui/toast";
 import { useGetHubs } from "@/hooks/hub.hook";
 import { useCreateShipment } from "@/hooks/shipment.hook";
 import { useGetZones } from "@/hooks/zone.hook";
-import type { Hub } from "@/types";
+import type { Hub } from "@/types/hub.type";
 import type { CreateShipmentFormValues } from "@/validation";
 import { createShipmentSchema } from "@/validation";
 import { useForm } from "@tanstack/react-form";

@@ -11,3 +11,15 @@ export interface IOverallStatisticsResponse {
   message: string;
   data: IOverallStatistics;
 }
+
+export interface ICourierStatisticsResponse {
+  success: boolean;
+  statusCode: number;
+  message: string;
+  data: IOverallStatistics;
+}
+
+export interface ICourierStatistics {
+  totalEarnings: string;
+  totalCompletedShipments: number;
+}

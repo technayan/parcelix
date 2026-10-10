@@ -26,6 +26,78 @@ export default function LoginForm() {
 
   const { mutate: login, isPending: loginPending } = useLogin();
 
+  const handleAdminLogin = () => {
+    login(
+      { email: "test.admin@gmail.com", password: "testAdmin@123456" },
+      {
+        onSuccess: () => {
+          toast.add({
+            title: "Login Success",
+            description: "Welcome back",
+            type: "success",
+          });
+          router.push("/");
+        },
+        onError: (err) => {
+          toast.add({
+            title: "Authorization failure",
+            description:
+              err.message || "Something went wrong. Please, try again",
+            type: "error",
+          });
+        },
+      },
+    );
+  };
+
+  const handleCourierLogin = () => {
+    login(
+      { email: "test.courier@gmail.com", password: "testCourier@123456" },
+      {
+        onSuccess: () => {
+          toast.add({
+            title: "Login Success",
+            description: "Welcome back",
+            type: "success",
+          });
+          router.push("/");
+        },
+        onError: (err) => {
+          toast.add({
+            title: "Authorization failure",
+            description:
+              err.message || "Something went wrong. Please, try again",
+            type: "error",
+          });
+        },
+      },
+    );
+  };
+
+  const handleCustomerLogin = () => {
+    login(
+      { email: "nayan050620@gmail.com", password: "Nayan@123456" },
+      {
+        onSuccess: () => {
+          toast.add({
+            title: "Login Success",
+            description: "Welcome back",
+            type: "success",
+          });
+          router.push("/");
+        },
+        onError: (err) => {
+          toast.add({
+            title: "Authorization failure",
+            description:
+              err.message || "Something went wrong. Please, try again",
+            type: "error",
+          });
+        },
+      },
+    );
+  };
+
   const form = useForm({
     defaultValues: {
       email: "",
@@ -163,6 +235,9 @@ export default function LoginForm() {
           Register
         </Link>
       </div>
+      <Button onClick={handleAdminLogin}>Admin Login</Button>
+      <Button onClick={handleCourierLogin}>Courier Login</Button>
+      <Button onClick={handleCustomerLogin}>Customer Login</Button>
     </div>
   );
 }

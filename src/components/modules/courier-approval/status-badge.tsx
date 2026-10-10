@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import type { CourierStatus } from "@/types";
+import type { CourierStatus } from "@/types/courier.type";
 
 export function StatusBadge({ status }: { status: CourierStatus }) {
   const config = {

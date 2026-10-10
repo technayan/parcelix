@@ -1,9 +1,9 @@
 "use client";
 
 import { useGetMe } from "@/hooks";
-import { UserRole } from "@/types";
+import type { UserRole } from "@/types/user.type";
 import { useRouter } from "next/navigation";
-import { ReactNode, useEffect } from "react";
+import { type ReactNode, useEffect } from "react";
 import AccessDenied from "./access-denied";
 import AuthLoading from "./auth-loading";
 
@@ -28,7 +28,7 @@ export default function RoleGuard({ children, roles }: IProps) {
     if (isError || !user) {
       router.replace("/login");
     }
-  }, [isPending, isError, user]);
+  }, [isPending, isError, user, router.replace]);
 
   if (isPending) {
     return <AuthLoading />;

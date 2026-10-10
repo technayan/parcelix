@@ -12,7 +12,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/toast";
 import { useUpdateProfile } from "@/hooks";
-import { UpdateProfileFormProps } from "@/types";
+import type { UpdateProfileFormProps } from "@/types/profile.type";
 import { updateProfileSchema } from "@/validation";
 import { useForm } from "@tanstack/react-form";
 import type z from "zod";

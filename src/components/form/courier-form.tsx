@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useApplyAsCourier } from "@/hooks/courier.hook";
-import type { CourierApplicationData } from "@/types";
+import type { CourierApplicationData } from "@/types/courier.type";
 import { formatFileSize } from "@/utils";
 import {
   courierApplicationSchema,

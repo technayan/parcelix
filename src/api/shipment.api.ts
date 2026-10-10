@@ -1,15 +1,13 @@
 import { apiClient } from "@/lib/apiClient";
-import type {
-  ApiResponse,
-  ICreateShipmentPayload,
-  MyShipment,
-  MyShipmentsParams,
-  Shipment,
-} from "@/types";
+import type { ApiResponse } from "@/types/api.type";
 import type {
   AllShipmentsParams,
   AssignedShipment,
   AssignedShipmentParams,
+  ICreateShipmentPayload,
+  MyShipment,
+  MyShipmentsParams,
+  Shipment,
   UpdateShipmentStatusPayload,
 } from "../types/shipment.type";
 

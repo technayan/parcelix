@@ -16,9 +16,8 @@ export default function Header() {
 
   const routes = [
     { name: "Home", url: "/" },
-    { name: "Zones", url: "/zones" },
-    { name: "Hubs", url: "/hubs" },
-    { name: "Pricing", url: "/pricing" },
+    { name: "Zones & Hubs", url: "/zones-and-hubs" },
+    { name: "Pricings", url: "/pricings" },
     { name: "Tracking", url: "/tracking" },
   ];
 

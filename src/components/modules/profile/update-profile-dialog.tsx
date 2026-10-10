@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { UpdateProfileDialogProps } from "@/types";
+import type { UpdateProfileDialogProps } from "@/types/profile.type";
 import { Pencil } from "lucide-react";
 import { useState } from "react";
 

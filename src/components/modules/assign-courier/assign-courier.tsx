@@ -23,7 +23,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "@/components/ui/toast";
 import { useAssignCourier, useGetAllShipments, useGetCouriers } from "@/hooks";
 import useDebounce from "@/hooks/debounce.hook";
-import type { Courier, Shipment } from "@/types";
+import type { Courier, Shipment } from "@/types/shipment.type";
 import { ArrowDown, LoaderCircle, Package, Search, Truck } from "lucide-react";
 import { useState } from "react";
 import { ShipmentDetailsDialog } from "../shipment/shipment-details-dialog";
