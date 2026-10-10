@@ -18,17 +18,4 @@ export const courierRoutes = [
       },
     ],
   },
-  {
-    title: "App Settings",
-    items: [
-      {
-        title: "Routing",
-        url: "#",
-      },
-      {
-        title: "Data Fetching",
-        url: "#",
-      },
-    ],
-  },
 ];

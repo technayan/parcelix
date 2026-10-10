@@ -328,16 +328,16 @@ export default function ShipmentManagement() {
 
                             <TableCell className="text-right">
                               <div className="flex flex-col gap-1">
-                                {/* {shipment.status === "PICKUP_REQUESTED" && ( */}
-                                <Button
-                                  size="sm"
-                                  className="bg-[#f97316] text-white hover:bg-primary"
-                                  disabled={assigningCourierId !== null}
-                                  onClick={() => openAssignDialog(shipment)}
-                                >
-                                  Assign Courier
-                                </Button>
-                                {/* )} */}
+                                {shipment.status === "PICKUP_REQUESTED" && (
+                                  <Button
+                                    size="sm"
+                                    className="bg-[#f97316] text-white hover:bg-primary"
+                                    disabled={assigningCourierId !== null}
+                                    onClick={() => openAssignDialog(shipment)}
+                                  >
+                                    Assign Courier
+                                  </Button>
+                                )}
                                 <Button
                                   size="sm"
                                   variant="outline"

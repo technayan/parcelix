@@ -18,17 +18,4 @@ export const customerRoutes = [
       },
     ],
   },
-  {
-    title: "App Settings",
-    items: [
-      {
-        title: "Routing",
-        url: "#",
-      },
-      {
-        title: "Data Fetching",
-        url: "#",
-      },
-    ],
-  },
 ];
