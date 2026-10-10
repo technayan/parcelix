@@ -5,7 +5,7 @@ import {
   updateProfilePhoto,
   updateUserStatus,
 } from "@/api";
-import type { UsersParams } from "@/types";
+import type { UsersParams } from "@/types/user.type";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export function useGetMe() {

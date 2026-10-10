@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import type { Courier } from "@/types";
+import type { Courier } from "@/types/courier.type";
 import { Eye } from "lucide-react";
 import { StatusBadge } from "./status-badge";
 

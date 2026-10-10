@@ -26,7 +26,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/toast";
 import { useGetAssignedShipments, useUpdateShipmentStatus } from "@/hooks";
 import useDebounce from "@/hooks/debounce.hook";
-import type { AssignedShipment } from "@/types";
+import type { AssignedShipment } from "@/types/shipment.type";
 import { ArrowRight, Package, Search, Truck } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -85,18 +85,6 @@ export default function AssignedShipmentManagement() {
     useUpdateShipmentStatus();
 
   const shipments: AssignedShipment[] = data?.data ?? [];
-
-  // const [isTransitionPending, startTransition] = useTransition();
-
-  // const [optimisticShipments, setOptimisticShipments] = useOptimistic(
-  //   shipments,
-  //   (currentShipments, shipmentId: string) =>
-  //     currentShipments.map((shipment) =>
-  //       shipment.id === shipmentId
-  //         ? { ...shipment, status: "PICKED_UP" }
-  //         : shipment,
-  //     ),
-  // );
 
   const pagination = data?.meta ?? {
     page: 1,

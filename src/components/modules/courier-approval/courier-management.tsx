@@ -17,24 +17,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/toast";
 import { useGetCouriers, useReviewCourier } from "@/hooks/courier.hook";
 import useDebounce from "@/hooks/debounce.hook";
-import type { Courier, CourierStatus } from "@/types";
+import type { Courier, CourierStatus } from "@/types/courier.type";
 import { Check, Eye, FileText, Search, X } from "lucide-react";
 import { useState } from "react";
 import { CourierTable } from "./courier-table";
 import { StatusBadge } from "./status-badge";
-
-// Replace these with your actual hooks.
-
-// interface Courier {
-//   id: string;
-//   name: string;
-//   email: string;
-//   phone?: string | null;
-//   address?: string | null;
-//   resume?: string | null;
-//   verificationStatus: CourierStatus;
-//   createdAt: string;
-// }
 
 const PAGE_SIZE = 10;
 

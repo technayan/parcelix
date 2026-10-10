@@ -1,12 +1,13 @@
 import { apiClient } from "@/lib/apiClient";
+
+import type { ApiResponse } from "@/types/api.type";
+import type { VerifyAccountPayload } from "@/types/auth.type";
 import type {
   ApproveCourierPayload,
   Courier,
   CourierApplicationPayload,
   CourierParams,
-  VerifyAccountPayload,
-} from "@/types";
-import type { ApiResponse } from "@/types/api.type";
+} from "@/types/courier.type";
 
 export function applyAsCourier(payload: CourierApplicationPayload) {
   const formData = new FormData();
@@ -39,4 +40,3 @@ export function approveCourier(payload: ApproveCourierPayload) {
     body: payload,
   });
 }
-

@@ -14,7 +14,7 @@ export const customerRoutes = [
       },
       {
         title: "My Transactions",
-        url: `${prefix}/transactions`,
+        url: `${prefix}/my-transactions`,
       },
     ],
   },

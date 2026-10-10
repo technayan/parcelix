@@ -1,11 +1,11 @@
 import { apiClient } from "@/lib/apiClient";
+import type { ApiResponse } from "@/types/api.type";
+import type { UpdateProfilePayload } from "@/types/auth.type";
 import type {
-  ApiResponse,
   TUser,
-  UpdateProfilePayload,
   UpdateUserStatusPayload,
   UsersParams,
-} from "@/types";
+} from "@/types/user.type";
 
 export function getMe() {
   return apiClient("/auth/profile");

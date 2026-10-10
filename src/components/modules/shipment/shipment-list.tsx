@@ -29,7 +29,7 @@ import {
   useRequestPickup,
 } from "@/hooks";
 import useDebounce from "@/hooks/debounce.hook";
-import type { MyShipment } from "@/types";
+import type { MyShipment } from "@/types/shipment.type";
 import {
   ArrowRight,
   Ban,

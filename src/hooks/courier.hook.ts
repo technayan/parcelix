@@ -4,7 +4,7 @@ import {
   getAllCouriers,
   verifyCourierAccount,
 } from "@/api";
-import type { CourierParams } from "@/types";
+import type { CourierParams } from "@/types/courier.type";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export function useApplyAsCourier() {

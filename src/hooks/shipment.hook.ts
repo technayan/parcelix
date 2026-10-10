@@ -14,7 +14,7 @@ import type {
   AllShipmentsParams,
   AssignedShipmentParams,
   MyShipmentsParams,
-} from "@/types";
+} from "@/types/shipment.type";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useCreateShipment = () => {
