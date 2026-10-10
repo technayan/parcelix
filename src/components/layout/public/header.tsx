@@ -4,7 +4,7 @@ import Logo from "@/../public/Parcelix-logo.png";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/toast";
 import { useGetMe, useLogout } from "@/hooks";
-import type { UserRole } from "@/types";
+import type { UserRole } from "@/types/user.type";
 import { useQueryClient } from "@tanstack/react-query";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
@@ -19,6 +19,7 @@ export default function Header() {
     { name: "Zones", url: "/zones" },
     { name: "Hubs", url: "/hubs" },
     { name: "Pricing", url: "/pricing" },
+    { name: "Tracking", url: "/tracking" },
   ];
 
   const dashboardRoute: Record<UserRole, string> = {
@@ -62,7 +63,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full h-16 border border-b fixed top-0 left-0 bg-white z-10">
+    <header className="w-full h-16 border border-b fixed top-0 left-0 bg-white z-20">
       <div className="container mx-auto  px-4 py-4 lg:px-8 relative flex justify-between items-center max-w-7xl">
         <Link href="/" className="flex items-center gap-2 font-medium">
           <Image src={Logo} width={120} height={50} alt="Parcelix logo" />
