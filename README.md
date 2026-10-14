@@ -4,6 +4,9 @@
 
 Built with Next.js, TypeScript, and Tailwind CSS, Parcelix provides a role-based interface for customers, couriers, and administrators to manage delivery operations through a centralized platform.
 
+<strong><p>Parcelix Backend Repository: <a href="https://github.com/technayan/parcelix-backend" target="_blank">https://github.com/technayan/parcelix-backend</a></p></strong>
+&nbsp;
+
 <p align="center">
   <a href="https://github.com/technayan/parcelix">
     <img src="https://img.shields.io/badge/Frontend-Repository-orange?style=for-the-badge&logo=github" alt="Frontend Repository" />
