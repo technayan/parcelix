@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -84,8 +84,8 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --background: #0b1220;
+  --foreground: #f8fafc;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -130,5 +130,87 @@
   }
   html {
     @apply font-sans;
+  }
+} */
+
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --ring: #f97316;
+}
+
+.dark {
+  --background: #0b1120;
+  --foreground: #f8fafc;
+  --card: #121c2e;
+  --card-foreground: #f8fafc;
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --muted: #172338;
+  --muted-foreground: #a7b2c5;
+  --border: #29364b;
+  --ring: #fb923c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+* {
+  box-sizing: border-box;
+}
+::selection {
+  background: #f9731633;
+}
+.steps {
+  z-index: 5;
+}
+.steps::after {
+  content: "";
+  height: 1px;
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: 27px;
+  z-index: -1;
+  background: linear-gradient(90deg, #f9731660, #f97316, #f9731660);
+}
+
+@media (max-width: 1023px) {
+  .steps::after {
+    display: none;
   }
 }

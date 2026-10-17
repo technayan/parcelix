@@ -16,6 +16,7 @@ import {
 import { toast } from "@/components/ui/toast";
 import { useChangePassword, useGetMe, useUpdateProfilePhoto } from "@/hooks";
 import type { UserInfo, UserRole } from "@/types/user.type";
+import { getNameInitials } from "@/utils";
 import {
   BadgeCheck,
   CalendarDays,
@@ -54,12 +55,7 @@ export function ProfileInfo() {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
 
-  const initials = user.name
-    .split(" ")
-    .map((name: string) => name[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
+  const initials = getNameInitials(user.name);
 
   const memberSince = new Date(user.createdAt).toLocaleDateString("en-US", {
     month: "long",
