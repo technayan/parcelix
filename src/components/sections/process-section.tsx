@@ -39,7 +39,7 @@ export function ProcessSection() {
         <div className="steps relative grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map(([number, title, copy]) => (
             <div className="text-center" key={number}>
-              <div className="mx-auto mb-5 grid size-14 place-items-center rounded-2xl bg-primary text-base font-extrabold text-white shadow-[0_0_0_7px_#0F172A]">
+              <div className="mx-auto mb-5 grid size-14 place-items-center rounded-md bg-primary text-base font-extrabold text-white shadow-[0_0_0_7px_#0F172A]">
                 {number}
               </div>
               <h3 className="text-base font-bold">{title}</h3>

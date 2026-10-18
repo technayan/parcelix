@@ -43,7 +43,7 @@ export function TestimonialsSection() {
         <div className="grid gap-4 md:grid-cols-3">
           {quotes.map((item) => (
             <article
-              className="rounded-2xl border border-border bg-background p-6"
+              className="rounded-xl border border-border bg-background p-6"
               key={item.id}
             >
               <div className="text-sm tracking-[2px] text-primary">★★★★★</div>
@@ -51,7 +51,7 @@ export function TestimonialsSection() {
                 “{item.quote}”
               </blockquote>
               <div className="flex items-center gap-3">
-                <div className="grid size-10 place-items-center rounded-xl bg-[#0F172A] text-xs font-extrabold text-white">
+                <div className="grid size-10 place-items-center rounded-full bg-[#0F172A] text-xs font-extrabold text-white">
                   {item.initials}
                 </div>
                 <div>

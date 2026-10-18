@@ -36,13 +36,13 @@ export function CoverageSection() {
             ))}
           </div>
         </div>
-        <div className="relative grid min-h-75 place-items-center overflow-hidden rounded-3xl bg-[#0F172A] sm:min-h-82.5">
+        <div className="relative grid min-h-75 place-items-center overflow-hidden rounded-2xl bg-[#0F172A] sm:min-h-82.5">
           <div className="absolute inset-[-15%] opacity-40 [background:repeating-linear-gradient(25deg,transparent_0_36px,#ffffff16_37px_39px,transparent_40px_70px),repeating-linear-gradient(115deg,transparent_0_48px,#ffffff13_49px_51px,transparent_52px_90px)]" />
           <div className="relative h-44 w-[70%] rotate-3 rounded-tr-[100px] border-r-[3px] border-t-[3px] border-dashed border-primary" />
-          <span className="absolute left-[14%] top-[24%] grid size-10 place-items-center rounded-xl bg-primary text-white shadow-lg">
+          <span className="absolute left-[14%] top-[13%] xl:top-[15%] grid size-10 place-items-center rounded-md bg-primary text-white shadow-lg">
             <House size={18} />
           </span>
-          <span className="absolute bottom-[20%] right-[12%] grid size-10 place-items-center rounded-xl bg-slate-50 text-slate-900 shadow-lg">
+          <span className="absolute bottom-[15%] right-[12%] grid size-10 place-items-center rounded-md bg-slate-50 text-slate-900 shadow-lg">
             <Check size={18} />
           </span>
           <span className="absolute bottom-5 left-5 text-xs tracking-wide text-slate-300">

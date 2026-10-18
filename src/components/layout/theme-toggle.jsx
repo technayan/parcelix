@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -14,7 +15,7 @@ export function ThemeToggle() {
       variant="outline"
       size="icon"
       aria-label="Toggle theme"
-      className="p-3 hover:cursor-pointer"
+      className="p-3 hover:cursor-pointer rounded-md"
       onClick={() => setTheme(dark ? "light" : "dark")}
     >
       {mounted && dark ? <Sun size={17} /> : <Moon size={17} />}

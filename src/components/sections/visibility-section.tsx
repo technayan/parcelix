@@ -10,12 +10,12 @@ export function VisibilitySection() {
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto grid w-[min(1160px,calc(100%-32px))] items-center gap-10 lg:grid-cols-2 lg:gap-14">
-        <div className="order-2 min-h-80 rounded-3xl bg-[#0F172A] p-6 text-slate-50 sm:p-8 lg:order-1">
+        <div className="order-2 min-h-80 rounded-2xl bg-[#0F172A] p-6 text-slate-50 sm:p-8 lg:order-1">
           <h3 className="text-2xl font-extrabold">Shipment overview</h3>
           <p className="mb-6 mt-2 text-sm leading-7 text-slate-400">
             A clear, at-a-glance view of a parcel&apos;s journey.
           </p>
-          <div className="mb-3 rounded-2xl border border-white/10 bg-[#1c2940] p-4">
+          <div className="mb-3 rounded-xl border border-white/10 bg-[#1c2940] p-4">
             <div className="flex flex-wrap items-center justify-between gap-2 text-sm font-bold">
               <span>Shipment TRK-7H6MXUR6-PFTHZW5U</span>
               <span className="text-orange-300">In transit</span>
@@ -28,7 +28,7 @@ export function VisibilitySection() {
               <span>Chattogram</span>
             </div>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-[#1c2940] p-4">
+          <div className="rounded-xl border border-white/10 bg-[#1c2940] p-4">
             <div className="flex items-center justify-between gap-2 text-sm font-bold">
               <span>Pickup confirmed</span>
               <span className="text-slate-400">09:30 AM</span>
@@ -62,7 +62,7 @@ export function VisibilitySection() {
                 className="flex items-start gap-3 text-[15px] font-semibold"
                 key={item}
               >
-                <span className="grid size-6 shrink-0 place-items-center rounded-lg bg-orange-500/10 text-primary">
+                <span className="grid size-6 shrink-0 place-items-center rounded-sm bg-orange-500/10 text-primary">
                   <Check size={15} />
                 </span>
                 {item}

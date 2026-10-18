@@ -1,4 +1,4 @@
-import RegisterImage from "@/../public/assets/parcelix-auth.jpg";
+import AuthImage from "@/../public/assets/parcelix-auth.jpg";
 import { RegisterForm } from "@/components/form/register-form";
 import BackBtn from "@/components/modules/auth/back-btn";
 import Image from "next/image";
@@ -27,7 +27,7 @@ export default function RegisterPage() {
                 <span className="size-1.5 rounded-full bg-[#F97316]" /> Get
                 started for free
               </div>
-              <h2 className="text-[32px] font-extrabold leading-tight tracking-[-1.6px] text-[#0F172A] dark:text-white">
+              <h2 className="text-[32px] font-semibold leading-tight tracking-[-1.6px] text-[#0F172A] dark:text-white">
                 Create your account<span className="text-[#F97316]">.</span>
               </h2>
               <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
@@ -41,7 +41,7 @@ export default function RegisterPage() {
       </div>
       <div className="relative hidden bg-muted lg:block">
         <Image
-          src={RegisterImage}
+          src={AuthImage}
           width={1000}
           height={1000}
           alt="Picture of a courier"

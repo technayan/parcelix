@@ -45,10 +45,10 @@ export function ServicesSection() {
         <div className="grid gap-4 md:grid-cols-3">
           {services.map(({ icon: Icon, title, copy, link, href }) => (
             <article
-              className="rounded-2xl border border-border bg-card p-6 transition duration-200 hover:-translate-y-1 hover:border-orange-500/50"
+              className="rounded-xl border border-border bg-card p-6 transition duration-200 hover:-translate-y-1 hover:border-orange-500/50"
               key={title}
             >
-              <div className="mb-5 grid size-12 place-items-center rounded-2xl bg-orange-500/10 text-primary">
+              <div className="mb-5 grid size-12 place-items-center rounded-md bg-orange-500/10 text-primary">
                 <Icon size={24} />
               </div>
               <h3 className="text-lg font-extrabold">{title}</h3>
@@ -56,7 +56,7 @@ export function ServicesSection() {
                 {copy}
               </p>
               <Link
-                className="inline-flex items-center gap-2 text-sm font-extrabold text-primary"
+                className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:gap-3 duration-300"
                 href={href}
               >
                 {link}

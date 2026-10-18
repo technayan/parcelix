@@ -117,7 +117,7 @@ export function RegisterForm() {
                       name={field.name}
                       type="text"
                       placeholder="Enter full name"
-                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -145,7 +145,7 @@ export function RegisterForm() {
                       name={field.name}
                       type="email"
                       placeholder="Enter valid email"
-                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -173,7 +173,7 @@ export function RegisterForm() {
                       name={field.name}
                       type="tel"
                       placeholder="Enter Bangladeshi phone no."
-                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -202,7 +202,7 @@ export function RegisterForm() {
                       name={field.name}
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter password"
-                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -244,7 +244,7 @@ export function RegisterForm() {
                       name={field.name}
                       type={showConfirmPassword ? "text" : "password"}
                       placeholder="Retype your password"
-                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -287,7 +287,7 @@ export function RegisterForm() {
                       id={field.name}
                       name={field.name}
                       placeholder="Enter address"
-                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -304,7 +304,7 @@ export function RegisterForm() {
           <Button
             disabled={registrationPending}
             type="submit"
-            className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-5 font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
+            className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
           >
             {registrationPending ? (
               <>
