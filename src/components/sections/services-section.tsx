@@ -1,25 +1,28 @@
-import { ArrowUpRight, Building2, House, Package } from "lucide-react";
-import Link from "next/link";
+import { Building2, House, Package } from "lucide-react";
+import ArticleBox from "../shared/article-box";
 
 const services = [
   {
     icon: House,
     title: "Doorstep Pickup",
-    copy: "Request for pickup after payment. Our courier network gets your parcel moving without the extra trip.",
+    description:
+      "Request for pickup after payment. Our courier network gets your parcel moving without the extra trip.",
     link: "Request pickup",
     href: "/dashboard/shipments",
   },
   {
     icon: Package,
     title: "Parcel Delivery",
-    copy: "Local and nationwide delivery with clear shipment statuses from collection through final handoff.",
+    description:
+      "Local and nationwide delivery with clear shipment statuses from collection through final handoff.",
     link: "Explore coverage",
     href: "/coverage",
   },
   {
     icon: Building2,
     title: "Business Shipping",
-    copy: "Keep orders organized with shipment management, delivery visibility, and a workflow that can scale.",
+    description:
+      "Keep orders organized with shipment management, delivery visibility, and a workflow that can scale.",
     link: "Ship with Parcelix",
     href: "/shipment",
   },
@@ -43,26 +46,15 @@ export function ServicesSection() {
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
-          {services.map(({ icon: Icon, title, copy, link, href }) => (
-            <article
-              className="rounded-xl border border-border bg-card p-6 transition duration-200 hover:-translate-y-1 hover:border-orange-500/50"
+          {services.map(({ icon: Icon, title, description, link, href }) => (
+            <ArticleBox
               key={title}
-            >
-              <div className="mb-5 grid size-12 place-items-center rounded-md bg-orange-500/10 text-primary">
-                <Icon size={24} />
-              </div>
-              <h3 className="text-lg font-extrabold">{title}</h3>
-              <p className="mb-5 mt-2 text-[15px] leading-7 text-muted-foreground">
-                {copy}
-              </p>
-              <Link
-                className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:gap-3 duration-300"
-                href={href}
-              >
-                {link}
-                <ArrowUpRight size={15} />
-              </Link>
-            </article>
+              title={title}
+              Icon={Icon}
+              description={description}
+              href={href}
+              link={link}
+            />
           ))}
         </div>
       </div>

@@ -1,29 +1,28 @@
-import {
-  ArrowUpRight,
-  ChartNoAxesCombined,
-  ClipboardList,
-  ShieldCheck,
-} from "lucide-react";
+import { ChartNoAxesCombined, ClipboardList, ShieldCheck } from "lucide-react";
+import ArticleBox from "../shared/article-box";
 
 const items = [
   {
     icon: ClipboardList,
     title: "One shipment workspace",
-    copy: "Keep parcel information, assignment, delivery status, invoice, and exceptions organized in one flow.",
+    description:
+      "Keep parcel information, assignment, delivery status, invoice, and exceptions organized in one flow.",
     link: "See the shipments",
     href: "/dashboard/shipments",
   },
   {
     icon: ShieldCheck,
     title: "Operational control",
-    copy: "Support role-based access for customers, couriers, and administrators without cluttering the experience.",
+    description:
+      "Support role-based access for customers, couriers, and administrators without cluttering the experience.",
     link: "Access you dashboard",
     href: "/dashboard",
   },
   {
     icon: ChartNoAxesCombined,
     title: "Clear delivery records",
-    copy: "Track shipment progress and keep useful records for follow-ups, reports, and service improvements.",
+    description:
+      "Track shipment progress and keep useful records for follow-ups, reports, and service improvements.",
     link: "Shipment records",
     href: "/dashboard/shipments",
   },
@@ -48,26 +47,15 @@ export function BusinessSection() {
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
-          {items.map(({ icon: Icon, title, copy, link, href }) => (
-            <article
-              className="rounded-xl border border-border bg-card p-6 transition duration-200 hover:-translate-y-1 hover:border-orange-500/50"
+          {items.map(({ icon: Icon, title, description, link, href }) => (
+            <ArticleBox
               key={title}
-            >
-              <div className="mb-5 grid size-12 place-items-center rounded-md bg-orange-500/10 text-primary">
-                <Icon size={24} />
-              </div>
-              <h3 className="text-lg font-extrabold">{title}</h3>
-              <p className="mb-5 mt-2 text-[15px] leading-7 text-muted-foreground">
-                {copy}
-              </p>
-              <a
-                className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:gap-3 duration-300"
-                href={href}
-              >
-                {link}
-                <ArrowUpRight size={15} />
-              </a>
-            </article>
+              title={title}
+              Icon={Icon}
+              description={description}
+              href={href}
+              link={link}
+            />
           ))}
         </div>
       </div>

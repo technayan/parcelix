@@ -1,4 +1,4 @@
-import RegisterImg from "@/../public/assets/parcelix-register.jpg";
+import AuthImage from "@/../public/assets/parcelix-auth.jpg";
 import CreateShipmentForm from "@/components/form/shipment-form";
 import Image from "next/image";
 
@@ -23,7 +23,7 @@ export default function RegisterPage() {
       </div>
       <div className="relative hidden bg-muted lg:block">
         <Image
-          src={RegisterImg}
+          src={AuthImage}
           width={1000}
           height={1000}
           alt="Picture of a courier"
