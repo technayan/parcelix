@@ -11,8 +11,8 @@ export default function ArticleBox({
   title: string;
   Icon: LucideIcon;
   description: string;
-  href: string;
-  link: string;
+  href?: string;
+  link?: string;
 }) {
   return (
     <article
@@ -26,13 +26,15 @@ export default function ArticleBox({
       <p className="mb-5 mt-2 text-[15px] leading-7 text-muted-foreground">
         {description}
       </p>
-      <Link
-        className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:gap-3 duration-300"
-        href={href}
-      >
-        {link}
-        <ArrowUpRight size={15} />
-      </Link>
+      {href && link && (
+        <Link
+          className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:gap-3 duration-300"
+          href={href}
+        >
+          {link}
+          <ArrowUpRight size={15} />
+        </Link>
+      )}
     </article>
   );
 }

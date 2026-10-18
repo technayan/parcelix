@@ -65,9 +65,9 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="overflow-hidden bg-[#F8FAFC] text-slate-900 dark:bg-[#0B1120] dark:text-slate-100">
+    <>
       {/* Services */}
-      <section className="py-16 sm:py-20" id="services">
+      <section className="py-16 sm:py-20">
         <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
           <div className="mx-auto mb-10 max-w-2xl text-center">
             <p className="text-xs font-extrabold uppercase tracking-[1.5px] text-primary">
@@ -108,6 +108,6 @@ export default function ServicesPage() {
 
       {/* Final CTA */}
       <CtaSection />
-    </main>
+    </>
   );
 }
