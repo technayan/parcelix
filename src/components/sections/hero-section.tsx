@@ -21,13 +21,13 @@ export function HeroSection() {
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
-              className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-5 font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600"
+              className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600"
               href="/shipment"
             >
               Create a Shipment <ArrowRight size={17} />
             </Link>
             <Link
-              className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-card px-5 font-medium transition hover:bg-muted"
+              className="inline-flex h-10 items-center gap-2 rounded-md border border-border bg-card px-4 text-sm font-medium transition hover:bg-muted"
               href="#how"
             >
               <Play size={15} /> See how it works

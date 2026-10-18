@@ -12,7 +12,15 @@ import { Input } from "@/components/ui/input";
 import { useRegistration } from "@/hooks";
 import { customerRegistrationSchema } from "@/validation";
 import { useForm } from "@tanstack/react-form";
-import { Eye, EyeClosed } from "lucide-react";
+import {
+  Eye,
+  EyeOff,
+  LockKeyhole,
+  Mail,
+  MapPin,
+  Phone,
+  UserRound,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -87,13 +95,6 @@ export function RegisterForm() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold tracking-tight">Create an account</h1>
-        <p className="text-sm text-muted-foreground">
-          Enter your details below to create your account
-        </p>
-      </div>
-
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -110,11 +111,13 @@ export function RegisterForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Full Name</FieldLabel>
                   <div className="relative">
+                    <UserRound className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
                     <Input
                       id={field.name}
                       name={field.name}
                       type="text"
                       placeholder="Enter full name"
+                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -136,11 +139,13 @@ export function RegisterForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Email</FieldLabel>
                   <div className="relative">
+                    <Mail className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
                     <Input
                       id={field.name}
                       name={field.name}
                       type="email"
                       placeholder="Enter valid email"
+                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -162,11 +167,13 @@ export function RegisterForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Phone Number</FieldLabel>
                   <div className="relative">
+                    <Phone className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
                     <Input
                       id={field.name}
                       name={field.name}
                       type="tel"
                       placeholder="Enter Bangladeshi phone no."
+                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -189,16 +196,17 @@ export function RegisterForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Password</FieldLabel>
                   <div className="relative">
+                    <LockKeyhole className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
                     <Input
                       id={field.name}
                       name={field.name}
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter password"
+                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
                       aria-invalid={isInvalid}
-                      className="pr-10"
                       autoComplete="off"
                     />
                     <button
@@ -210,9 +218,9 @@ export function RegisterForm() {
                       }
                     >
                       {showPassword ? (
-                        <Eye className="size-4" />
+                        <EyeOff className="size-4" />
                       ) : (
-                        <EyeClosed className="size-4" />
+                        <Eye className="size-4" />
                       )}
                     </button>
                   </div>
@@ -230,16 +238,17 @@ export function RegisterForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Confirm Password</FieldLabel>
                   <div className="relative">
+                    <LockKeyhole className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
                     <Input
                       id={field.name}
                       name={field.name}
                       type={showConfirmPassword ? "text" : "password"}
                       placeholder="Retype your password"
+                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
                       aria-invalid={isInvalid}
-                      className="pr-10"
                       autoComplete="off"
                     />
                     <button
@@ -253,9 +262,9 @@ export function RegisterForm() {
                       }
                     >
                       {showConfirmPassword ? (
-                        <Eye className="size-4" />
+                        <EyeOff className="size-4" />
                       ) : (
-                        <EyeClosed className="size-4" />
+                        <Eye className="size-4" />
                       )}
                     </button>
                   </div>
@@ -273,10 +282,12 @@ export function RegisterForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Address</FieldLabel>
                   <div className="relative">
+                    <MapPin className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
                     <Textarea
                       id={field.name}
                       name={field.name}
                       placeholder="Enter address"
+                      className="h-11 rounded-xl border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -293,7 +304,7 @@ export function RegisterForm() {
           <Button
             disabled={registrationPending}
             type="submit"
-            className="hover:bg-secondary"
+            className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-5 font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
           >
             {registrationPending ? (
               <>
@@ -306,7 +317,7 @@ export function RegisterForm() {
         </FieldGroup>
       </form>
 
-      <FieldSeparator>Or</FieldSeparator>
+      <FieldSeparator className="h-1 flex items-center my-1">OR</FieldSeparator>
 
       <GoogleLoginComponent />
 

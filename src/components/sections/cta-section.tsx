@@ -11,16 +11,16 @@ export function CtaSection() {
             <h2 className="max-w-xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
               Ready to send something on its way?
             </h2>
-            <p className="mt-3 text-base leading-7 text-orange-50">
+            <p className="mt-3 text-base leading-7 text-muted-foreground">
               Create a shipment, request for pickup, and follow the journey with
               Parcelix.
             </p>
           </div>
           <Link
-            className="relative z-10 inline-flex h-12 shrink-0 items-center gap-2 rounded-md bg-primary px-5 font-medium text-white transition hover:bg-orange-600 hover:-translate-y-0.5"
+            className="relative z-10 inline-flex h-10 shrink-0 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white transition hover:bg-orange-600 hover:-translate-y-0.5"
             href="/shipment"
           >
-            Get started with Parcelix <ArrowUpRight size={17} />
+            Get started with Parcelix <ArrowUpRight size={16} />
           </Link>
         </div>
       </div>

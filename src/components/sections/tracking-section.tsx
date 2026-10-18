@@ -32,13 +32,13 @@ export default function TrackingSection() {
               value={trackingId}
               onChange={(e) => setTrackingId(e.target.value)}
               required
-              className="min-w-0 flex-1 rounded-xl border border-border bg-background px-4 py-3 outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-orange-500/10"
+              className="min-w-0 flex-1 rounded-xl border border-border bg-background px-4 h-10 text-sm outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-orange-500/10"
             />
             <button
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-4 font-medium cursor-pointer text-white transition hover:bg-orange-600"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-primary px-4 text-sm font-medium cursor-pointer text-white transition hover:bg-orange-600"
               type="submit"
             >
-              <Search size={17} /> Track shipment
+              <Search size={16} /> Track shipment
             </button>
           </form>
         </div>
