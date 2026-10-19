@@ -89,10 +89,6 @@ export default function CourierApplyForm() {
 
   return (
     <div className="flex flex-col gap-6 ">
-      <div className="flex flex-col gap-2 text-center">
-        <h1 className="text-2xl font-bold tracking-tight">Apply as courier</h1>
-      </div>
-
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -121,7 +117,7 @@ export default function CourierApplyForm() {
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
                         aria-invalid={isInvalid}
-                        className="pl-9"
+                        className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                         autoComplete="name"
                       />
                     </div>
@@ -151,7 +147,7 @@ export default function CourierApplyForm() {
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
                         aria-invalid={isInvalid}
-                        className="pl-9"
+                        className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                         autoComplete="email"
                       />
                     </div>
@@ -181,7 +177,7 @@ export default function CourierApplyForm() {
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
                         aria-invalid={isInvalid}
-                        className="pl-9"
+                        className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                         autoComplete="tel"
                       />
                     </div>
@@ -211,7 +207,7 @@ export default function CourierApplyForm() {
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
                         aria-invalid={isInvalid}
-                        className="pl-9"
+                        className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                         autoComplete="street-address"
                       />
                     </div>
@@ -244,7 +240,7 @@ export default function CourierApplyForm() {
                     <input
                       id="resume-field"
                       type="file"
-                      className="sr-only"
+                      className="sr-only h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       name={field.name}
                       onChange={(e) => {
                         const selected = e.target.files?.[0] ?? null;
@@ -298,20 +294,20 @@ export default function CourierApplyForm() {
           </Button>
         </FieldGroup>
       </form>
-      <p className="text-xs leading-relaxed text-muted-foreground">
+      <p className="text-sm leading-relaxed text-muted-foreground">
         Already an approved courier?{" "}
         <Link
           href="/login"
           className="font-medium underline underline-offset-4 hover:text-primary"
         >
-          Sign in to the Courier Portal
+          Log in
         </Link>
         . Customer applications should use the{" "}
         <Link
           href="/register"
           className="font-medium underline underline-offset-4 hover:text-primary"
         >
-          Customer registration
+          Registration
         </Link>{" "}
         form instead.
       </p>

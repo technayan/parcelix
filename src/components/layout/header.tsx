@@ -22,7 +22,6 @@ export default function Header() {
     { name: "Coverage", url: "/coverage" },
     { name: "Pricings", url: "/pricings" },
     { name: "Tracking", url: "/tracking" },
-    { name: "FAQ", url: "/faq" },
   ];
 
   const dashboardRoute: Record<UserRole, string> = {

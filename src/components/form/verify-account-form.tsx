@@ -116,7 +116,7 @@ export default function VerifyAccountForm({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Verify Account</CardTitle>
+        <CardTitle className="text-2xl font-bold">Verify Account</CardTitle>
         <CardDescription>
           Please provide the OTP we send you in your email
         </CardDescription>
@@ -147,12 +147,30 @@ export default function VerifyAccountForm({
               pattern={REGEXP_ONLY_DIGITS}
             >
               <InputOTPGroup>
-                <InputOTPSlot index={0} />
-                <InputOTPSlot index={1} />
-                <InputOTPSlot index={2} />
-                <InputOTPSlot index={3} />
-                <InputOTPSlot index={4} />
-                <InputOTPSlot index={5} />
+                <InputOTPSlot
+                  index={0}
+                  className="border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                />
+                <InputOTPSlot
+                  index={1}
+                  className="border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                />
+                <InputOTPSlot
+                  index={2}
+                  className="border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                />
+                <InputOTPSlot
+                  index={3}
+                  className="border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                />
+                <InputOTPSlot
+                  index={4}
+                  className="border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                />
+                <InputOTPSlot
+                  index={5}
+                  className="border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                />
               </InputOTPGroup>
             </InputOTP>
             {isInvalid && (
@@ -165,13 +183,16 @@ export default function VerifyAccountForm({
         </form>
       </CardContent>
       <CardFooter className="gap-1">
-        <Button disabled={resendTimer > 0} className="bg-primary">
+        <Button
+          disabled={resendTimer > 0}
+          className="bg-primary cursor-pointer"
+        >
           Resend
         </Button>
         <Button
           type="submit"
           form="otp-form"
-          className="bg-secondary hover:bg-primary"
+          className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
         >
           Submit
         </Button>
