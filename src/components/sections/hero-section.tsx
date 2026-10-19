@@ -56,23 +56,26 @@ export function HeroSection() {
             <div className="absolute left-1/2 top-10 size-67.5 -translate-x-1/2 rounded-full border border-dashed border-white/20 sm:top-11 sm:size-77.5" />
             <div className="absolute left-1/2 top-17 size-55 -translate-x-1/2 rounded-full border border-white/10 sm:top-17.5 sm:size-67.5" />
             <div className="absolute left-[22%] top-[20%] h-[56%] w-[55%] rotate-[8deg] rounded-tr-[90px] border-r-[3px] border-t-[3px] border-dashed border-primary/90" />
-            <span className="absolute left-[13%] top-[20%] grid size-10 place-items-center rounded-md bg-primary text-white shadow-lg shadow-orange-500/40">
-              <House size={18} />
-            </span>
-            <span className="absolute right-[13%] top-[49%] grid size-10 place-items-center rounded-md bg-slate-50 text-slate-900">
-              <Check size={19} />
-            </span>
-            <span className="absolute left-[8%] top-[33%] text-[10px] font-bold tracking-[1.4px] text-slate-300">
-              PICKUP POINT
-            </span>
-            <span className="absolute right-[5%] top-[62%] text-[10px] font-bold tracking-[1.4px] text-slate-300">
-              DESTINATION
-            </span>
+            <div className="absolute left-[15%] top-[11%] flex flex-col items-center gap-3">
+              <span className=" grid size-10 place-items-center rounded-md bg-primary text-white shadow-lg shadow-orange-500/40">
+                <House size={18} />
+              </span>
+              <span className=" text-[10px] font-bold tracking-[1.4px] text-slate-300">
+                PICKUP POINT
+              </span>
+            </div>
+            <div className="absolute right-[18%] top-[75%] flex flex-col items-center gap-3">
+              <span className=" grid size-10 place-items-center rounded-md bg-slate-50 text-slate-900">
+                <Check size={19} />
+              </span>
+              <span className="text-[10px] font-bold tracking-[1.4px] text-slate-300">
+                DESTINATION
+              </span>
+            </div>
             <div className="absolute left-1/2 top-[48%] h-36.25 w-37.5 -translate-x-1/2 -translate-y-1/2 -rotate-6 drop-shadow-2xl">
               <div className="absolute inset-x-0 top-0 h-11 bg-orange-300 [clip-path:polygon(50%_0,100%_26%,50%_100%,0_26%)]" />
               <div className="absolute left-0 top-9.5 h-25 w-1/2 bg-primary [clip-path:polygon(0_0,100%_25%,100%_100%,0_70%)]" />
               <div className="absolute right-0 top-9.5 h-25 w-1/2 bg-orange-700 [clip-path:polygon(0_25%,100%_0,100%_70%,0_100%)]" />
-              <div className="absolute left-[44%] top-2 h-30.5 w-5.5 bg-orange-200/80 [clip-path:polygon(0_0,100%_25%,100%_100%,0_77%)]" />
             </div>
             <div className="absolute right-3 top-4 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-xl sm:-right-3 sm:top-7">
               <small className="block text-[11px] text-slate-500">

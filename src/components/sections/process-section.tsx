@@ -20,8 +20,8 @@ const steps = [
 export function ProcessSection() {
   return (
     <section
-      className="overflow-hidden bg-[#0F172A] py-16 text-slate-50 sm:py-20"
       id="how"
+      className="overflow-hidden bg-[#0F172A] py-16 text-slate-50 sm:py-20"
     >
       <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
         <div className="mx-auto mb-12 max-w-2xl text-center">

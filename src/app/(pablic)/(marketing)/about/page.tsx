@@ -38,14 +38,9 @@ const faqs = [
       "Sign in to your customer account, create a shipment, and use the pickup request option when it becomes available for that shipment.",
   },
   {
-    question: "Do you offer business shipping solutions?",
-    answer:
-      "Parcelix is designed to support organized shipment workflows, courier assignments, and delivery tracking for business use cases.",
-  },
-  {
     question: "What happens if a delivery fails?",
     answer:
-      "The shipment status can reflect a failed delivery. Follow the latest shipment details or contact the relevant support team for the next steps.",
+      "The shipment status can reflect a failed delivery. If a shipment fails, the courier will return the parcel to you with a reason for the return.",
   },
 ];
 
@@ -96,7 +91,7 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ accordion */}
-      <section id="faq" className="py-16 sm:py-20 bg-card/60">
+      <section className="py-16 sm:py-20 bg-card/60">
         <div className="mx-auto grid w-[min(1160px,calc(100%-32px))] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[1.5px] text-primary">
@@ -112,7 +107,7 @@ export default function AboutPage() {
             </p>
 
             <div className="mt-7 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-[#121C2E]">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-500 dark:bg-orange-500/10">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-orange-50 text-orange-500 dark:bg-orange-500/10">
                 <Clock3 size={20} />
               </div>
               <div>

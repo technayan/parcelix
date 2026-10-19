@@ -11,7 +11,7 @@ export default function TrackingSection() {
     setSearchedId(trackingId.trim());
   }
   return (
-    <section className="pb-14 sm:pb-20" id="track">
+    <section className="pb-14 sm:pb-20">
       <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
         <div className="grid gap-5 rounded-xl border border-border bg-card p-5 shadow-xl shadow-slate-900/5 md:grid-cols-[1fr_1.15fr] md:items-center md:gap-6 md:p-7">
           <div>
