@@ -170,12 +170,12 @@ function TrackingTimeline({ events }: { events: ITrackingEvent[] }) {
       </CardHeader>
 
       <CardContent>
-        <div className="mb-6 rounded-xl border border-orange-100 bg-orange-50/60 p-4">
+        <div className="mb-6 rounded-xl border border-foreground/20 bg-background/60 p-4">
           <p className="text-sm text-muted-foreground">Latest update</p>
-          <p className="mt-1 font-semibold text-slate-900">
+          <p className="mt-1 font-semibold text-foreground">
             {formatStatus(latestStatus)}
           </p>
-          <p className="mt-1 text-sm text-slate-600">
+          <p className="mt-1 text-sm text-foreground/40">
             {getStatusDescription(latestStatus)}
           </p>
           <p className="mt-2 text-xs text-muted-foreground">
@@ -220,7 +220,7 @@ function TrackingTimeline({ events }: { events: ITrackingEvent[] }) {
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                     <p
                       className={`font-semibold ${
-                        isLatest ? "text-slate-900" : "text-slate-700"
+                        isLatest ? "text-slate-900" : "text-foreground/90"
                       }`}
                     >
                       {formatStatus(event.status)}
@@ -294,7 +294,7 @@ export default function TrackShipment() {
           <Truck className="size-7" />
         </div>
 
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Track Your Shipment
         </h1>
 
@@ -314,7 +314,7 @@ export default function TrackShipment() {
             <div className="min-w-0 flex-1">
               <label
                 htmlFor="trackingId"
-                className="mb-2 block text-sm font-medium text-slate-700"
+                className="mb-2 block text-sm font-medium text-foreground/50"
               >
                 Tracking ID
               </label>
@@ -332,7 +332,7 @@ export default function TrackShipment() {
                 aria-describedby={
                   validationError ? "tracking-error" : undefined
                 }
-                className="h-11"
+                className="h-11 border-foreground/20"
               />
 
               {validationError && (

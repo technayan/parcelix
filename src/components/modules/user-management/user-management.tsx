@@ -182,14 +182,14 @@ export default function UserManagement() {
               value={searchTerm}
               onChange={(event) => handleSearchChange(event.target.value)}
               placeholder="Search by name, email, or phone..."
-              className="pl-9"
+              className="pl-9 border-foreground/20"
             />
           </div>
 
           <div className="flex justify-between items-center">
             {/* Role tabs */}
             <div className="space-y-2 pt-4">
-              <p className="text-sm font-medium text-slate-700">Role</p>
+              <p className="text-sm font-medium text-foreground">Role</p>
               <Tabs value={roleFilter} onValueChange={handleRoleChange}>
                 <div className="">
                   <TabsList className="w-max">
@@ -227,7 +227,7 @@ export default function UserManagement() {
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow>
+                <TableRow className="border-foreground/20">
                   <TableHead>User</TableHead>
                   <TableHead>Phone</TableHead>
                   <TableHead>Role</TableHead>
@@ -239,7 +239,7 @@ export default function UserManagement() {
               <TableBody>
                 {isLoading ? (
                   Array.from({ length: 5 }).map((_, index) => (
-                    <TableRow key={index}>
+                    <TableRow key={index} className="border-foreground/20">
                       <TableCell colSpan={5}>
                         <div className="h-10 animate-pulse rounded bg-muted" />
                       </TableCell>
@@ -260,12 +260,14 @@ export default function UserManagement() {
                     // const isUpdating = updatingUserId === user.id;
 
                     return (
-                      <TableRow key={user.id}>
+                      <TableRow key={user.id} className="border-foreground/20">
                         <TableCell>
-                          <p className="font-medium text-slate-900">
+                          <p className="font-medium text-foreground">
                             {user.name}
                           </p>
-                          <p className="text-xs text-slate-500">{user.email}</p>
+                          <p className="text-xs text-foreground/50">
+                            {user.email}
+                          </p>
                         </TableCell>
 
                         <TableCell>{user.phone || "—"}</TableCell>
@@ -335,7 +337,7 @@ export default function UserManagement() {
 
           {/* Pagination */}
           {!isLoading && pagination.total > 0 && (
-            <div className="mt-6 flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-6 flex flex-col gap-3 border-t border-foreground/20 pt-4 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-muted-foreground">
                 Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
                 {Math.min(pagination.page * pagination.limit, pagination.total)}{" "}

@@ -1,12 +1,10 @@
 "use client";
 
-import Logo from "@/../public/Parcelix-logo.png";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -16,7 +14,6 @@ import {
 import { adminRoutes, courierRoutes, customerRoutes } from "@/routes";
 import type { SidebarItems } from "@/types/sidebar.type";
 import type { UserRole } from "@/types/user.type";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -31,16 +28,21 @@ export function DashboardSidebar({ role }: { role: UserRole }) {
   const routes: SidebarItems = sidebarRoutes[role] || [];
 
   return (
-    <Sidebar>
+    <Sidebar className="border-r border-foreground/20">
       <SidebarHeader>
-        <Link href="/" className="flex items-center gap-2 font-medium">
-          <Image src={Logo} width={120} height={50} alt="Parcelix logo" />
+        <Link
+          className="flex items-center gap-2.5 text-[26px] lg:text-[30px] font-bold tracking-[-1.2px]"
+          href="/"
+          aria-label="Parcelix home"
+        >
+          <span>
+            Parcel<span className="text-primary">ix</span>
+          </span>
         </Link>
       </SidebarHeader>
       <SidebarContent>
         {routes.map((item) => (
           <SidebarGroup key={item.title}>
-            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {item.items.map((item) => (
@@ -48,6 +50,7 @@ export function DashboardSidebar({ role }: { role: UserRole }) {
                     <SidebarMenuButton
                       render={<Link href={item.url} />}
                       isActive={pathname === item.url}
+                      className={`${pathname === item.url && "bg-foreground/5 text-primary"}`}
                     >
                       {item.title}
                     </SidebarMenuButton>

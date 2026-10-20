@@ -16,8 +16,8 @@ export function SummaryCard({
           {icon}
         </div>
         <div>
-          <p className="mt-1 text-2xl font-bold text-slate-900">{value}</p>
-          <p className="text-sm text-slate-500">{title}</p>
+          <p className="mt-1 text-2xl font-bold text-foreground">{value}</p>
+          <p className="text-sm text-foreground">{title}</p>
         </div>
       </CardContent>
     </Card>

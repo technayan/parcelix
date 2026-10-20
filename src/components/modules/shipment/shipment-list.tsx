@@ -195,36 +195,6 @@ export default function MyShipmentsClient() {
     });
   };
 
-  // const handleRequestPickup = (shipmentId: string) => {
-  //   requestPickup(shipmentId, {
-  //     onSuccess: (res) => {
-  //       if (!res.success) {
-  //         toast.add({
-  //           title: "Request for Pick Up Failed",
-  //           description:
-  //             res.message ||
-  //             "Unable to send pick up request for this shipment.",
-  //           type: "error",
-  //         });
-  //         return;
-  //       }
-
-  //       toast.add({
-  //         title: "Requested Seccessfully",
-  //         description: "Your request for pick up has sent successfully.",
-  //         type: "success",
-  //       });
-  //     },
-  //     onError: (error) => {
-  //       toast.add({
-  //         title: "Pick Up Request Failed",
-  //         description: error.message || "Please try again.",
-  //         type: "error",
-  //       });
-  //     },
-  //   });
-  // };
-
   const handleRequestPickup = (shipmentId: string) => {
     startTransition(async () => {
       setOptimisticShipments(shipmentId);
@@ -274,7 +244,7 @@ export default function MyShipmentsClient() {
                   value={searchTerm}
                   onChange={(event) => handleSearch(event.target.value)}
                   placeholder="Search tracking ID..."
-                  className="pl-9"
+                  className="pl-9 border-foreground/20"
                 />
               </div>
             </div>
@@ -301,7 +271,7 @@ export default function MyShipmentsClient() {
               <div className="w-full overflow-x-auto">
                 <Table>
                   <TableHeader>
-                    <TableRow>
+                    <TableRow className="border-foreground/20">
                       <TableHead>Shipment</TableHead>
                       <TableHead>Route</TableHead>
                       <TableHead>Status</TableHead>
@@ -319,7 +289,7 @@ export default function MyShipmentsClient() {
                         </TableRow>
                       ))
                     ) : shipments.length === 0 ? (
-                      <TableRow>
+                      <TableRow className="border-foreground/20">
                         <TableCell colSpan={4} className="py-12 text-center">
                           <Package className="mx-auto size-9 text-muted-foreground/50" />
                           <p className="mt-3 font-medium">No shipments found</p>
@@ -337,7 +307,10 @@ export default function MyShipmentsClient() {
                         );
 
                         return (
-                          <TableRow key={shipment.id}>
+                          <TableRow
+                            key={shipment.id}
+                            className="border-foreground/20"
+                          >
                             <TableCell className="min-w-44">
                               <p className="font-medium">
                                 {shipment.trackingId || "Not assigned yet"}
@@ -398,7 +371,8 @@ export default function MyShipmentsClient() {
                                 {canCancel && (
                                   <Button
                                     size="sm"
-                                    variant="destructive"
+                                    variant="default"
+                                    className="bg-red-400 hover:bg-red-600"
                                     onClick={() => {
                                       setCancelOpen(true);
                                       setSelectedShipment(shipment);
@@ -464,7 +438,7 @@ export default function MyShipmentsClient() {
               </div>
 
               {!isLoading && pagination.total > 0 && (
-                <div className="mt-6 flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="mt-6 flex flex-col gap-3 border-t border-foreground/20 pt-4 sm:flex-row sm:items-center sm:justify-between">
                   <p className="text-sm text-muted-foreground">
                     Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
                     {Math.min(
@@ -514,7 +488,7 @@ export default function MyShipmentsClient() {
           }
         }}
       >
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md bg-background">
           <DialogHeader>
             <DialogTitle>Cancel Shipment?</DialogTitle>
             <DialogDescription>
@@ -538,9 +512,10 @@ export default function MyShipmentsClient() {
               Keep Shipment
             </Button>
             <Button
-              variant="destructive"
+              variant="default"
               disabled={isCancelling}
               onClick={handleCancel}
+              className="hover:bg-orange-600"
             >
               {isCancelling ? "Cancelling..." : "Yes, Cancel"}
             </Button>

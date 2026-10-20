@@ -1,14 +1,17 @@
 "use client";
 
 import { Search } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 
 export default function TrackingSection() {
   const [trackingId, setTrackingId] = useState("");
-  const [searchedId, setSearchedId] = useState("");
+
+  const router = useRouter();
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSearchedId(trackingId.trim());
+    router.push(`/tracking`);
   }
   return (
     <section className="pb-14 sm:pb-20">

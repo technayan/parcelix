@@ -23,15 +23,17 @@ export function UpdateProfileDialog({ user }: UpdateProfileDialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
-        <div className="border border-gray-300 px-3 py-2 rounded-full flex gap-3 items-center hover:bg-primary hover:text-white duration-200">
+        <div className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer">
           <Pencil className="size-4" />
           Edit Profile
         </div>
       </DialogTrigger>
 
-      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
+      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg bg-background">
         <DialogHeader>
-          <DialogTitle>Edit Profile</DialogTitle>
+          <DialogTitle className="text-xl font-semibold tracking-tight">
+            Edit Profile
+          </DialogTitle>
 
           <DialogDescription>
             Update your personal information and contact details.

@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function MyShipmentsPage() {
   return (
-    <div className="space-y-6 p-6">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <section className="p-5">
+      <div className="flex flex-col space-y-6 gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">My Shipments</h1>
           <p className="mt-1 text-sm text-muted-foreground">
@@ -21,7 +21,7 @@ export default function MyShipmentsPage() {
         </div>
 
         <Link href="/shipment">
-          <Button className="bg-orange-500 text-white hover:bg-orange-600">
+          <Button className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer">
             <Package className="mr-2 size-4" />
             Create Shipment
           </Button>
@@ -29,6 +29,6 @@ export default function MyShipmentsPage() {
       </div>
 
       <MyShipmentsClient />
-    </div>
+    </section>
   );
 }

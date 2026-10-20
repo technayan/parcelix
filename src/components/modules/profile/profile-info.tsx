@@ -378,7 +378,11 @@ export function ProfileInfo() {
               </p>
             </div>
 
-            <Button variant="outline" onClick={handleChangePassword}>
+            <Button
+              variant="default"
+              onClick={handleChangePassword}
+              className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
+            >
               Change Password
             </Button>
           </div>

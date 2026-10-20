@@ -217,14 +217,18 @@ export default function ShipmentManagement() {
                 value={searchTerm}
                 onChange={(event) => handleSearch(event.target.value)}
                 placeholder="Search tracking ID or sender..."
-                className="pl-9"
+                className="pl-9 border-foreground/20"
               />
             </div>
           </div>
         </CardHeader>
 
         <CardContent>
-          <Tabs value={activeTab} onValueChange={handleTabChange}>
+          <Tabs
+            value={activeTab}
+            onValueChange={handleTabChange}
+            className="flex-col"
+          >
             <TabsList className="mb-6">
               <TabsTrigger value="all">All Shipments</TabsTrigger>
               <TabsTrigger value="pickup">Request Pickup</TabsTrigger>
@@ -243,10 +247,10 @@ export default function ShipmentManagement() {
               </div>
             ) : (
               <>
-                <div className="rounded-md border w-full">
+                <div className="rounded-md border border-foreground/20 w-full">
                   <Table className="overflow-x-scroll">
                     <TableHeader>
-                      <TableRow>
+                      <TableRow className="border-foreground/20">
                         <TableHead>Shipment</TableHead>
                         <TableHead>Sender</TableHead>
                         <TableHead>Route</TableHead>
@@ -259,7 +263,10 @@ export default function ShipmentManagement() {
                     <TableBody>
                       {isLoading ? (
                         Array.from({ length: 5 }).map((_, index) => (
-                          <TableRow key={index}>
+                          <TableRow
+                            key={index}
+                            className="border-foreground/20"
+                          >
                             <TableCell colSpan={6}>
                               <div className="h-10 animate-pulse rounded bg-muted" />
                             </TableCell>
@@ -283,7 +290,10 @@ export default function ShipmentManagement() {
                         </TableRow>
                       ) : (
                         visibleShipments.map((shipment) => (
-                          <TableRow key={shipment.id}>
+                          <TableRow
+                            key={shipment.id}
+                            className="border-foreground/20"
+                          >
                             <TableCell className="min-w-48">
                               <p className="font-medium">
                                 {shipment.trackingId}
@@ -366,7 +376,7 @@ export default function ShipmentManagement() {
                 </div>
 
                 {!isLoading && pagination.total > 0 && (
-                  <div className="mt-6 flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="mt-6 flex flex-col gap-3 border-t border-foreground/20 pt-4 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-sm text-muted-foreground">
                       Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
                       {Math.min(

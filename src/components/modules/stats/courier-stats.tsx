@@ -12,13 +12,20 @@ const statisticsConfig = [
     key: "totalEarnings",
     icon: Banknote,
     format: (value: string | number) =>
-      `৳${Number(value).toLocaleString("en-BD")}`,
+      `৳ ${Number(value).toLocaleString("en-BD")}`,
   },
   {
     title: "Completed Shipments",
     key: "totalCompletedShipments",
     icon: PackageCheck,
     format: (value: string | number) => Number(value).toLocaleString("en-BD"),
+  },
+  {
+    title: "Average Earnings",
+    key: "averageEarnings",
+    icon: Banknote,
+    format: (value: string | number) =>
+      `৳ ${Number(value).toLocaleString("en-BD")}`,
   },
 ] as const;
 
@@ -29,6 +36,8 @@ export default function CourierStatistics() {
     isError,
     refetch,
   } = useGetCourierStatistics();
+
+  console.log(response);
 
   if (isPending) {
     return (
@@ -55,27 +64,26 @@ export default function CourierStatistics() {
 
   return (
     <section className="space-y-6">
-      <div className="grid gap-4 sm:grid-cols-2 mt-5">
+      <div className="grid gap-4 sm:grid-cols-3 mt-5">
         {statisticsConfig.map((item) => {
           const Icon = item.icon;
           const value = statistics[item.key];
 
           return (
             <Card key={item.key} className="border-slate-200 shadow-sm">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-slate-600">
-                  {item.title}
-                </CardTitle>
-
+              <CardHeader className="flex flex-row items-center justify-between space-y-0">
                 <div className="rounded-lg bg-orange-50 p-2">
                   <Icon className="size-5 text-orange-500" />
                 </div>
               </CardHeader>
 
               <CardContent>
-                <div className="text-2xl font-bold tracking-tight text-slate-900">
+                <div className="text-3xl font-bold tracking-tight text-foreground">
                   {item.format(value)}
                 </div>
+                <CardTitle className="text-sm font-medium text-foreground">
+                  {item.title}
+                </CardTitle>
               </CardContent>
             </Card>
           );

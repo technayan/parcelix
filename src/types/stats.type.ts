@@ -16,10 +16,11 @@ export interface ICourierStatisticsResponse {
   success: boolean;
   statusCode: number;
   message: string;
-  data: IOverallStatistics;
+  data: ICourierStatistics;
 }
 
 export interface ICourierStatistics {
   totalEarnings: string;
   totalCompletedShipments: number;
+  averageEarnings: number;
 }

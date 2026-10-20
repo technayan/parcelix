@@ -19,6 +19,7 @@ import { useGetCouriers, useReviewCourier } from "@/hooks/courier.hook";
 import useDebounce from "@/hooks/debounce.hook";
 import type { Courier, CourierStatus } from "@/types/courier.type";
 import { Check, Eye, FileText, Search, X } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 import { CourierTable } from "./courier-table";
 import { StatusBadge } from "./status-badge";
@@ -200,14 +201,18 @@ export default function CourierManagement() {
                 value={searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
                 placeholder="Search by name or email..."
-                className="pl-9"
+                className="pl-9 border-foreground/20"
               />
             </div>
           </div>
         </CardHeader>
 
         <CardContent>
-          <Tabs value={activeTab} onValueChange={handleTabChange}>
+          <Tabs
+            value={activeTab}
+            onValueChange={handleTabChange}
+            className="flex-col "
+          >
             {/* Status Tabs */}
             <TabsList className="mb-6">
               <TabsTrigger value="all">All</TabsTrigger>
@@ -232,7 +237,7 @@ export default function CourierManagement() {
 
             {/* Pagination */}
             {!isLoading && pagination.total > 0 && (
-              <div className="mt-6 flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-6 flex flex-col gap-3 border-t border-foreground/20 pt-4 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-sm text-muted-foreground">
                   Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
                   {Math.min(
@@ -281,9 +286,11 @@ export default function CourierManagement() {
 
       {/* Review Courier Dialog */}
       <Dialog open={reviewDialogOpen} onOpenChange={setReviewDialogOpen}>
-        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
+        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg bg-background">
           <DialogHeader>
-            <DialogTitle>Review Courier Application</DialogTitle>
+            <DialogTitle className="text-xl font-semibold">
+              Review Courier Application
+            </DialogTitle>
 
             <DialogDescription>
               Review the applicant's information before approving or rejecting
@@ -331,9 +338,9 @@ export default function CourierManagement() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="hover:bg-secondary hover:text-white"
+                      className="hover:bg-primary hover:text-white"
                     >
-                      <a
+                      <Link
                         href={selectedCourier.resume}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -341,7 +348,7 @@ export default function CourierManagement() {
                       >
                         <Eye className="size-4" />
                         View
-                      </a>
+                      </Link>
                     </Button>
                   </div>
                 </div>
