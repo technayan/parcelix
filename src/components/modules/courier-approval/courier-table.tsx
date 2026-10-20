@@ -23,10 +23,10 @@ export function CourierTable({
   onReview,
 }: CourierTableProps) {
   return (
-    <div className="overflow-x-auto rounded-md border">
+    <div className="overflow-x-auto rounded-md border border-foreground/20">
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="border-foreground/20">
             <TableHead>Courier</TableHead>
             <TableHead>Phone</TableHead>
             <TableHead>Status</TableHead>
@@ -38,14 +38,14 @@ export function CourierTable({
         <TableBody>
           {loading
             ? Array.from({ length: 5 }).map((_, index) => (
-                <TableRow key={index}>
+                <TableRow key={index} className="border-foreground/20">
                   <TableCell colSpan={5}>
                     <div className="h-10 animate-pulse rounded bg-muted" />
                   </TableCell>
                 </TableRow>
               ))
             : couriers.map((courier) => (
-                <TableRow key={courier.id}>
+                <TableRow key={courier.id} className="border-foreground/20">
                   <TableCell>
                     <div>
                       <p className="font-medium">{courier.user.name}</p>
@@ -74,7 +74,7 @@ export function CourierTable({
                     <Button
                       variant="outline"
                       size="sm"
-                      className="flex items-centers"
+                      className="flex items-centers ml-auto hover:bg-primary hover:text-white cursor-pointer"
                       onClick={() => onReview(courier)}
                     >
                       <Eye className="size-4" />

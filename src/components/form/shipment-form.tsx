@@ -10,6 +10,16 @@ import type { Hub } from "@/types/hub.type";
 import type { CreateShipmentFormValues } from "@/validation";
 import { createShipmentSchema } from "@/validation";
 import { useForm } from "@tanstack/react-form";
+import {
+  ListChecks,
+  MapPin,
+  MapPinned,
+  Phone,
+  SquareText,
+  UserRound,
+  Warehouse,
+  Weight,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../ui/field";
 import { Input } from "../ui/input";
@@ -150,11 +160,13 @@ export default function CreateShipmentForm() {
               <Field data-invalid={isInvalid}>
                 <FieldLabel htmlFor={field.name}>Sender Full Name</FieldLabel>
                 <div className="relative">
+                  <UserRound className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
                   <Input
                     id={field.name}
                     name={field.name}
                     type="text"
                     placeholder="Enter full name"
+                    className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     onChange={(e) => field.handleChange(e.target.value)}
@@ -177,11 +189,13 @@ export default function CreateShipmentForm() {
                   Sender Phone Number
                 </FieldLabel>
                 <div className="relative">
+                  <Phone className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
                   <Input
                     id={field.name}
                     name={field.name}
                     type="tel"
                     placeholder="Enter phone no."
+                    className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     onChange={(e) => field.handleChange(e.target.value)}
@@ -203,10 +217,12 @@ export default function CreateShipmentForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Sender Address</FieldLabel>
                   <div className="relative">
+                    <MapPin className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
                     <Textarea
                       id={field.name}
                       name={field.name}
                       placeholder="Enter address"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -228,11 +244,13 @@ export default function CreateShipmentForm() {
               <Field data-invalid={isInvalid}>
                 <FieldLabel htmlFor={field.name}>Receiver Full Name</FieldLabel>
                 <div className="relative">
+                  <UserRound className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
                   <Input
                     id={field.name}
                     name={field.name}
                     type="text"
                     placeholder="Enter full name"
+                    className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     onChange={(e) => field.handleChange(e.target.value)}
@@ -255,11 +273,13 @@ export default function CreateShipmentForm() {
                   Receiver Phone Number
                 </FieldLabel>
                 <div className="relative">
+                  <Phone className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
                   <Input
                     id={field.name}
                     name={field.name}
                     type="tel"
                     placeholder="Enter phone no."
+                    className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     onChange={(e) => field.handleChange(e.target.value)}
@@ -281,10 +301,12 @@ export default function CreateShipmentForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Receiver Address</FieldLabel>
                   <div className="relative">
+                    <MapPin className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
                     <Textarea
                       id={field.name}
                       name={field.name}
                       placeholder="Enter address"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -312,6 +334,7 @@ export default function CreateShipmentForm() {
                 <FieldLabel htmlFor={field.name}>Origin Zone</FieldLabel>
 
                 <div className="relative">
+                  <MapPinned className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
                   <Select
                     value={field.state.value}
                     onValueChange={(value) => {
@@ -320,13 +343,19 @@ export default function CreateShipmentForm() {
                     }}
                     disabled={loadingZones}
                   >
-                    <SelectTrigger id={field.name} className="w-full">
-                      <SelectValue placeholder="Select Origin Zone">
+                    <SelectTrigger
+                      id={field.name}
+                      className="w-full border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                    >
+                      <SelectValue
+                        placeholder="Origin Zone"
+                        className="h-11 rounded-md pl-7 pr-10 text-sm"
+                      >
                         {selectedZone?.name}
                       </SelectValue>
                     </SelectTrigger>
 
-                    <SelectContent>
+                    <SelectContent className="bg-background">
                       <SelectGroup>
                         <SelectLabel>Origin Zone</SelectLabel>
 
@@ -359,6 +388,7 @@ export default function CreateShipmentForm() {
                 <FieldLabel htmlFor={field.name}>Origin Hub</FieldLabel>
 
                 <div className="relative">
+                  <Warehouse className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
                   <Select
                     value={field.state.value}
                     onValueChange={(value) => {
@@ -366,13 +396,19 @@ export default function CreateShipmentForm() {
                     }}
                     disabled={loadingHubs}
                   >
-                    <SelectTrigger id={field.name} className="w-full">
-                      <SelectValue placeholder="Select Origin Hub">
+                    <SelectTrigger
+                      id={field.name}
+                      className="w-full border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                    >
+                      <SelectValue
+                        placeholder="Origin Hub"
+                        className="h-11 rounded-md pl-7 pr-10 text-sm"
+                      >
                         {selectedHub?.name}
                       </SelectValue>
                     </SelectTrigger>
 
-                    <SelectContent>
+                    <SelectContent className="bg-background">
                       <SelectGroup>
                         <SelectLabel>Origin Hub</SelectLabel>
 
@@ -405,6 +441,7 @@ export default function CreateShipmentForm() {
                 <FieldLabel htmlFor={field.name}>Destination Zone</FieldLabel>
 
                 <div className="relative">
+                  <MapPinned className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
                   <Select
                     value={field.state.value}
                     onValueChange={(value) => {
@@ -413,13 +450,19 @@ export default function CreateShipmentForm() {
                     }}
                     disabled={loadingZones}
                   >
-                    <SelectTrigger id={field.name} className="w-full">
-                      <SelectValue placeholder="Select Destination Zone">
+                    <SelectTrigger
+                      id={field.name}
+                      className="w-full border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                    >
+                      <SelectValue
+                        placeholder="Destination Zone"
+                        className="h-11 rounded-md pl-7 pr-10 text-sm"
+                      >
                         {selectedZone?.name}
                       </SelectValue>
                     </SelectTrigger>
 
-                    <SelectContent>
+                    <SelectContent className="bg-background">
                       <SelectGroup>
                         <SelectLabel>Destination Zone</SelectLabel>
 
@@ -452,6 +495,7 @@ export default function CreateShipmentForm() {
                 <FieldLabel htmlFor={field.name}>Destination Hub</FieldLabel>
 
                 <div className="relative">
+                  <Warehouse className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
                   <Select
                     value={field.state.value}
                     onValueChange={(value) => {
@@ -459,13 +503,19 @@ export default function CreateShipmentForm() {
                     }}
                     disabled={loadingHubs}
                   >
-                    <SelectTrigger id={field.name} className="w-full  ">
-                      <SelectValue placeholder="Select Destination Hub">
+                    <SelectTrigger
+                      id={field.name}
+                      className="w-full border-slate-200 bg-slate-50/70 focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                    >
+                      <SelectValue
+                        placeholder="Destination Hub"
+                        className="h-11 rounded-md pl-7 pr-10 text-sm "
+                      >
                         {selectedHub?.name}
                       </SelectValue>
                     </SelectTrigger>
 
-                    <SelectContent>
+                    <SelectContent className="bg-background">
                       <SelectGroup>
                         <SelectLabel>Destination Hub</SelectLabel>
 
@@ -495,11 +545,13 @@ export default function CreateShipmentForm() {
                   Weight (in kilogram)
                 </FieldLabel>
                 <div className="relative">
+                  <Weight className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
                   <Input
                     id={field.name}
                     name={field.name}
                     type="number"
                     placeholder="Enter weight in KG"
+                    className="w-full h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     onChange={(e) => field.handleChange(Number(e.target.value))}
@@ -525,7 +577,7 @@ export default function CreateShipmentForm() {
                 <div className="relative">
                   <RadioGroup
                     defaultValue="comfortable"
-                    className="w-fit flex gap-8"
+                    className="w-fit flex gap-8 mt-3"
                   >
                     <div className="flex items-center gap-2">
                       <RadioGroupItem value="true" id="r2" />
@@ -552,10 +604,12 @@ export default function CreateShipmentForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Description</FieldLabel>
                   <div className="relative">
+                    <SquareText className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
                     <Textarea
                       id={field.name}
                       name={field.name}
                       placeholder="Enter description"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -581,10 +635,12 @@ export default function CreateShipmentForm() {
                     Pickup Instructions
                   </FieldLabel>
                   <div className="relative">
+                    <ListChecks className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
                     <Textarea
                       id={field.name}
                       name={field.name}
                       placeholder="Enter instructions"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -602,7 +658,7 @@ export default function CreateShipmentForm() {
       <Button
         disabled={isPending}
         type="submit"
-        className="hover:bg-secondary mt-8 px-6 w-full"
+        className="mt-7 inline-flex w-full h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
       >
         {isPending ? (
           <>

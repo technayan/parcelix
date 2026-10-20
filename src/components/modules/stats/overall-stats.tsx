@@ -75,7 +75,7 @@ export default function OverallStatistics() {
           return (
             <Card key={item.key} className="border-slate-200 shadow-sm">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-slate-600">
+                <CardTitle className="text-sm font-medium text-foreground/50">
                   {item.title}
                 </CardTitle>
 
@@ -85,7 +85,7 @@ export default function OverallStatistics() {
               </CardHeader>
 
               <CardContent>
-                <div className="text-2xl font-bold tracking-tight text-slate-900">
+                <div className="text-2xl font-bold tracking-tight text-foreground">
                   {item.format(value)}
                 </div>
               </CardContent>

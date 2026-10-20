@@ -15,6 +15,7 @@ import { useUpdateProfile } from "@/hooks";
 import type { UpdateProfileFormProps } from "@/types/profile.type";
 import { updateProfileSchema } from "@/validation";
 import { useForm } from "@tanstack/react-form";
+import { Mail, MapPin, Phone, UserRound } from "lucide-react";
 import type z from "zod";
 
 export function UpdateProfileForm({
@@ -78,16 +79,6 @@ export function UpdateProfileForm({
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-1">
-        <h2 className="text-xl font-semibold tracking-tight">
-          Profile Information
-        </h2>
-
-        <p className="text-sm text-muted-foreground">
-          Update your personal information and contact details.
-        </p>
-      </div>
-
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -106,17 +97,22 @@ export function UpdateProfileForm({
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Full Name</FieldLabel>
 
-                  <Input
-                    id={field.name}
-                    name={field.name}
-                    type="text"
-                    placeholder="Enter full name"
-                    value={field.state.value}
-                    onBlur={field.handleBlur}
-                    onChange={(e) => field.handleChange(e.target.value)}
-                    aria-invalid={isInvalid}
-                    autoComplete="name"
-                  />
+                  <div className="relative flex items-center">
+                    <UserRound className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
+
+                    <Input
+                      id={field.name}
+                      name={field.name}
+                      type="text"
+                      placeholder="Enter full name"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      value={field.state.value}
+                      onBlur={field.handleBlur}
+                      onChange={(e) => field.handleChange(e.target.value)}
+                      aria-invalid={isInvalid}
+                      autoComplete="name"
+                    />
+                  </div>
 
                   {isInvalid && <FieldError errors={field.state.meta.errors} />}
                 </Field>
@@ -128,13 +124,17 @@ export function UpdateProfileForm({
           <Field>
             <FieldLabel htmlFor="email">Email</FieldLabel>
 
-            <Input
-              id="email"
-              type="email"
-              value={user.email}
-              disabled
-              className="bg-muted"
-            />
+            <div className="relative">
+              <Mail className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
+
+              <Input
+                id="email"
+                type="email"
+                value={user.email}
+                disabled
+                className="h-11 rounded-md border-slate-200 bg-muted pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+              />
+            </div>
 
             <p className="text-xs text-muted-foreground">
               Email address cannot be changed here.
@@ -151,17 +151,21 @@ export function UpdateProfileForm({
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Phone Number</FieldLabel>
 
-                  <Input
-                    id={field.name}
-                    name={field.name}
-                    type="tel"
-                    placeholder="Enter Bangladeshi phone no."
-                    value={field.state.value}
-                    onBlur={field.handleBlur}
-                    onChange={(e) => field.handleChange(e.target.value)}
-                    aria-invalid={isInvalid}
-                    autoComplete="tel"
-                  />
+                  <div className="relative">
+                    <Phone className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
+                    <Input
+                      id={field.name}
+                      name={field.name}
+                      type="tel"
+                      placeholder="Enter Bangladeshi phone no."
+                      className="h-11 rounded-md border-slate-200 bg-muted pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      value={field.state.value}
+                      onBlur={field.handleBlur}
+                      onChange={(e) => field.handleChange(e.target.value)}
+                      aria-invalid={isInvalid}
+                      autoComplete="tel"
+                    />
+                  </div>
 
                   {isInvalid && <FieldError errors={field.state.meta.errors} />}
                 </Field>
@@ -179,16 +183,20 @@ export function UpdateProfileForm({
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Address</FieldLabel>
 
-                  <Textarea
-                    id={field.name}
-                    name={field.name}
-                    placeholder="Enter your address"
-                    value={field.state.value}
-                    onBlur={field.handleBlur}
-                    onChange={(e) => field.handleChange(e.target.value)}
-                    aria-invalid={isInvalid}
-                    autoComplete="street-address"
-                  />
+                  <div className="relative">
+                    <MapPin className="pointer-events-none absolute left-3.5 top-4.5 size-4.25 -translate-y-1/2 text-slate-400" />
+                    <Textarea
+                      id={field.name}
+                      name={field.name}
+                      placeholder="Enter your address"
+                      className="h-11 rounded-md border-slate-200 bg-muted pl-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      value={field.state.value}
+                      onBlur={field.handleBlur}
+                      onChange={(e) => field.handleChange(e.target.value)}
+                      aria-invalid={isInvalid}
+                      autoComplete="street-address"
+                    />
+                  </div>
 
                   {isInvalid && <FieldError errors={field.state.meta.errors} />}
                 </Field>
@@ -200,7 +208,7 @@ export function UpdateProfileForm({
           <Button
             disabled={updateProfilePending}
             type="submit"
-            className="hover:bg-secondary"
+            className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
           >
             {updateProfilePending ? (
               <>

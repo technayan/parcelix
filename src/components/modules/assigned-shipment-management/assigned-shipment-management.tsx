@@ -224,7 +224,7 @@ export default function AssignedShipmentManagement() {
                   value={searchTerm}
                   onChange={(event) => handleSearch(event.target.value)}
                   placeholder="Search tracking ID..."
-                  className="pl-9"
+                  className="pl-9 border-foreground/20"
                 />
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function AssignedShipmentManagement() {
               <div className="w-full overflow-x-auto">
                 <Table>
                   <TableHeader>
-                    <TableRow>
+                    <TableRow className="border-foreground/20">
                       <TableHead>Sender</TableHead>
                       <TableHead>Receiver</TableHead>
                       <TableHead>Route</TableHead>
@@ -282,7 +282,10 @@ export default function AssignedShipmentManagement() {
                     ) : (
                       shipments.map((shipment: AssignedShipment) => {
                         return (
-                          <TableRow key={shipment.id}>
+                          <TableRow
+                            key={shipment.id}
+                            className="border-foreground/20"
+                          >
                             <TableCell className="min-w-44">
                               <p className="font-medium">
                                 {shipment.senderName}
@@ -455,7 +458,7 @@ export default function AssignedShipmentManagement() {
               </div>
 
               {!isLoading && pagination.total > 0 && (
-                <div className="mt-6 flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="mt-6 flex flex-col gap-3 border-t border-foreground/20 pt-4 sm:flex-row sm:items-center sm:justify-between">
                   <p className="text-sm text-muted-foreground">
                     Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
                     {Math.min(

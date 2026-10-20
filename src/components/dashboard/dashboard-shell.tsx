@@ -10,6 +10,7 @@ import type { UserRole } from "@/types/user.type";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
+import { ThemeToggle } from "../layout/theme-toggle";
 import { Button } from "../ui/button";
 import { toast } from "../ui/toast";
 import { DashboardSidebar } from "./dashboard-sidebar";
@@ -59,15 +60,19 @@ export default function DashboardShell({
     <SidebarProvider>
       <DashboardSidebar role={role} />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 justify-between">
+        <header className="flex h-16 shrink-0 items-center gap-2 border-b border-foreground/20 px-4 justify-between">
           <SidebarTrigger className="-ml-1" />
-          <Button
-            onClick={handleLogout}
-            disabled={isLoggingOut}
-            variant="destructive"
-          >
-            Logout
-          </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              variant="destructive"
+              className="inline-flex h-9 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
+            >
+              Logout
+            </Button>
+          </div>
         </header>
         {children}
       </SidebarInset>

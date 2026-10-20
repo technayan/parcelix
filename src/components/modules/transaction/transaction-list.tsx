@@ -27,26 +27,6 @@ function formatAmount(amount: string | number, currency = "BDT") {
   }).format(Number(amount));
 }
 
-function formatDate(value: string | null) {
-  if (!value) return "—";
-
-  // Normalize the API timestamp, e.g. 21:02:33:729
-  const normalized = value.replace(/T(\d{2}:\d{2}:\d{2}):(\d{3})/, "T$1.$2");
-
-  const date = new Date(normalized);
-
-  if (Number.isNaN(date.getTime())) return value;
-
-  return new Intl.DateTimeFormat("en-BD", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true,
-  }).format(date);
-}
-
 function getStatusClass(status: string) {
   switch (status) {
     case "PAID":
@@ -119,7 +99,7 @@ export default function PaymentList() {
             <div className="w-full overflow-x-auto">
               <Table>
                 <TableHeader>
-                  <TableRow>
+                  <TableRow className="border-foreground/20">
                     <TableHead>Transaction</TableHead>
                     <TableHead>Payment Date</TableHead>
                     <TableHead>Amount</TableHead>
@@ -151,7 +131,10 @@ export default function PaymentList() {
                     </TableRow>
                   ) : (
                     payments.map((payment) => (
-                      <TableRow key={payment.id}>
+                      <TableRow
+                        key={payment.id}
+                        className="border-foreground/20"
+                      >
                         <TableCell className="min-w-44">
                           <p className="font-mono text-sm font-medium">
                             {payment.bkashTrxId}
@@ -162,9 +145,7 @@ export default function PaymentList() {
                         </TableCell>
 
                         <TableCell className="min-w-44 whitespace-nowrap">
-                          <p className="text-sm">
-                            {formatDate(payment.paidAt)}
-                          </p>
+                          <p className="text-sm">{payment.paidAt}</p>
                         </TableCell>
 
                         <TableCell className="whitespace-nowrap">
@@ -179,7 +160,7 @@ export default function PaymentList() {
                         <TableCell className="min-w-48">
                           {payment.refundAmount !== null ? (
                             <div className="space-y-1">
-                              <p className="font-medium text-slate-700">
+                              <p className="font-medium text-foreground">
                                 {formatAmount(
                                   Number(payment.refundAmount),
                                   payment.currency,
@@ -188,7 +169,7 @@ export default function PaymentList() {
 
                               {payment.refundedAt && (
                                 <p className="text-xs text-muted-foreground">
-                                  {formatDate(payment.refundedAt)}
+                                  {payment.refundedAt}
                                 </p>
                               )}
 
@@ -221,7 +202,7 @@ export default function PaymentList() {
             </div>
 
             {!isLoading && pagination.total > 0 && (
-              <div className="mt-6 flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-6 flex flex-col gap-3 border-t border-foreground/20 pt-4 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-sm text-muted-foreground">
                   Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
                   {Math.min(

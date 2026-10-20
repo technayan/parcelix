@@ -3,7 +3,7 @@
 import { useLogin } from "@/hooks";
 import { loginSchema } from "@/validation";
 import { useForm } from "@tanstack/react-form";
-import { Eye, EyeClosed } from "lucide-react";
+import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -52,7 +52,7 @@ export default function LoginForm() {
 
   const handleCourierLogin = () => {
     login(
-      { email: "test.courier@gmail.com", password: "testCourier@123456" },
+      { email: "ai.agent.nayan@gmail.com", password: "Nayan@123456" },
       {
         onSuccess: () => {
           toast.add({
@@ -133,14 +133,6 @@ export default function LoginForm() {
   });
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold tracking-tight">
-          Login to your account
-        </h1>
-        <p className="text-balance text-sm text-muted-foreground">
-          Enter your email below to login to your account
-        </p>
-      </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -156,14 +148,19 @@ export default function LoginForm() {
               return (
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Email</FieldLabel>
-                  <Input
-                    id={field.name}
-                    name={field.name}
-                    onChange={(e) => field.handleChange(e.target.value)}
-                    onBlur={field.handleBlur}
-                    value={field.state.value}
-                    aria-invalid={isInvalid}
-                  />
+                  <div className="relative">
+                    <Mail className="pointer-events-none absolute left-3.5 top-1/2 size-4.25 -translate-y-1/2 text-slate-400" />
+                    <Input
+                      id={field.name}
+                      name={field.name}
+                      placeholder="Enter your email"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
+                      onChange={(e) => field.handleChange(e.target.value)}
+                      onBlur={field.handleBlur}
+                      value={field.state.value}
+                      aria-invalid={isInvalid}
+                    />
+                  </div>
                   {isInvalid && <FieldError errors={field.state.meta.errors} />}
                 </Field>
               );
@@ -179,9 +176,12 @@ export default function LoginForm() {
                 <Field data-invalid={isInvalid}>
                   <FieldLabel htmlFor={field.name}>Password</FieldLabel>
                   <div className="relative">
+                    <LockKeyhole className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
                     <Input
                       id={field.name}
                       name={field.name}
+                      placeholder="Enter your password"
+                      className="h-11 rounded-md border-slate-200 bg-slate-50/70 pl-10 pr-10 text-sm focus-visible:border-[#F97316] focus-visible:ring-[#F97316]/20 dark:border-white/10 dark:bg-white/[0.035]"
                       onChange={(e) => field.handleChange(e.target.value)}
                       onBlur={field.handleBlur}
                       value={field.state.value}
@@ -194,9 +194,9 @@ export default function LoginForm() {
                       onClick={() => setShowPassword((prev) => !prev)}
                     >
                       {showPassword ? (
-                        <Eye className="size-4" />
+                        <EyeOff className="size-4" />
                       ) : (
-                        <EyeClosed className="size-4" />
+                        <Eye className="size-4" />
                       )}
                     </button>
                   </div>
@@ -209,7 +209,7 @@ export default function LoginForm() {
           <Button
             disabled={loginPending}
             type="submit"
-            className="hover:bg-secondary"
+            className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
           >
             {loginPending ? (
               <>
@@ -222,7 +222,7 @@ export default function LoginForm() {
         </FieldGroup>
       </form>
 
-      <FieldSeparator> Or</FieldSeparator>
+      <FieldSeparator className="h-1 flex items-center my-1">OR</FieldSeparator>
 
       <GoogleLoginComponent />
 
@@ -235,9 +235,30 @@ export default function LoginForm() {
           Register
         </Link>
       </div>
-      <Button onClick={handleAdminLogin}>Admin Login</Button>
-      <Button onClick={handleCourierLogin}>Courier Login</Button>
-      <Button onClick={handleCustomerLogin}>Customer Login</Button>
+
+      <div className="mt-5 p-3 border border-muted-foreground/30 rounded-lg">
+        <p className="text-muted-foreground text-sm mb-3">Demo login</p>
+        <div className="flex justify-between w-full">
+          <Button
+            onClick={handleAdminLogin}
+            className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-7 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
+          >
+            Admin
+          </Button>
+          <Button
+            onClick={handleCourierLogin}
+            className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-7 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
+          >
+            Courier
+          </Button>
+          <Button
+            onClick={handleCustomerLogin}
+            className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-7 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer"
+          >
+            Customer
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }

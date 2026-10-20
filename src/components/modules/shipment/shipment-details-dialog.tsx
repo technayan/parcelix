@@ -149,7 +149,7 @@ function SectionTitle({
   children: React.ReactNode;
 }) {
   return (
-    <h3 className="flex items-center gap-2 font-semibold text-slate-900">
+    <h3 className="flex items-center gap-2 font-semibold text-foreground">
       <Icon className="size-4 text-orange-500" />
       {children}
     </h3>
@@ -175,7 +175,7 @@ function DetailItem({
 
       <div className="min-w-0 flex-1">
         <p className="text-sm text-muted-foreground">{label}</p>
-        <p className="wrap-break-word text-sm font-medium text-slate-900">
+        <p className="wrap-break-word text-sm font-medium text-foreground">
           {value || "Not available"}
         </p>
       </div>
@@ -195,8 +195,8 @@ function PersonCard({
   address: string;
 }) {
   return (
-    <div className="space-y-4 rounded-xl border p-4">
-      <h4 className="font-medium text-slate-900">{title}</h4>
+    <div className="space-y-4 rounded-xl border border-foreground/20 bg-card p-4">
+      <h4 className="font-medium text-foreground">{title}</h4>
 
       <DetailItem label="Name" value={name} icon={UserRound} />
 
@@ -224,7 +224,7 @@ export function ShipmentDetailsDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-3xl">
+      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-3xl bg-background">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-xl">
             <Package className="size-5 text-orange-500" />
@@ -261,11 +261,11 @@ export function ShipmentDetailsDialog({
         {!isPending && !isError && shipment && (
           <div className="space-y-6">
             {/* Tracking overview */}
-            <div className="rounded-xl border bg-slate-50 p-4">
+            <div className="rounded-xl border border-foreground/20 bg-card p-4">
               <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
                 <div className="min-w-0">
                   <p className="text-sm text-muted-foreground">Tracking ID</p>
-                  <p className="mt-1 break-all font-semibold text-slate-900">
+                  <p className="mt-1 break-all font-semibold text-foreground">
                     {shipment.trackingId || "Not generated yet"}
                   </p>
                 </div>
@@ -354,7 +354,7 @@ export function ShipmentDetailsDialog({
               <SectionTitle icon={MapPin}>Delivery Route</SectionTitle>
 
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="space-y-4 rounded-xl border p-4">
+                <div className="space-y-4 rounded-xl border border-foreground/20 bg-card p-4">
                   <h4 className="flex items-center gap-2 font-medium">
                     <MapPin className="size-4 text-emerald-600" />
                     Origin
@@ -371,7 +371,7 @@ export function ShipmentDetailsDialog({
                   />
                 </div>
 
-                <div className="space-y-4 rounded-xl border p-4">
+                <div className="space-y-4 rounded-xl border border-foreground/20 bg-card   p-4">
                   <h4 className="flex items-center gap-2 font-medium">
                     <MapPin className="size-4 text-orange-500" />
                     Destination
@@ -397,7 +397,7 @@ export function ShipmentDetailsDialog({
               <SectionTitle icon={Truck}>Courier Information</SectionTitle>
 
               {shipment.courier ? (
-                <div className="grid gap-4 rounded-xl border p-4 sm:grid-cols-2">
+                <div className="grid gap-4 rounded-xl border border-foreground/20 bg-card p-4 sm:grid-cols-2">
                   <DetailItem
                     label="Courier Name"
                     value={shipment.courier.user.name}
@@ -414,7 +414,7 @@ export function ShipmentDetailsDialog({
                   />
                 </div>
               ) : (
-                <p className="rounded-lg border border-dashed p-4 text-sm text-muted-foreground">
+                <p className="rounded-lg border border-foreground/20 border-dashed p-4 text-sm text-muted-foreground">
                   No courier has been assigned to this shipment yet.
                 </p>
               )}
@@ -426,7 +426,7 @@ export function ShipmentDetailsDialog({
             <section className="space-y-4">
               <SectionTitle icon={CreditCard}>Payment & Invoice</SectionTitle>
 
-              <div className="grid gap-4 rounded-xl border p-4 sm:grid-cols-2">
+              <div className="grid gap-4 rounded-xl border border-foreground/20 bg-card p-4 sm:grid-cols-2">
                 <DetailItem
                   label="Payment Status"
                   value={shipment.payment?.status ?? "No payment record"}
@@ -493,7 +493,7 @@ export function ShipmentDetailsDialog({
               </div>
 
               {shipment.pickupInstructions && (
-                <div className="rounded-lg bg-slate-50 p-3">
+                <div className="rounded-lg bg-card p-3">
                   <p className="text-sm text-muted-foreground">
                     Pickup Instructions
                   </p>
