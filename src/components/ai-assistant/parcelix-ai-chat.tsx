@@ -73,7 +73,7 @@ export function ParcelixAIChat() {
               variant="ghost"
               aria-label="Close chat"
               onClick={() => setOpen(false)}
-              className="text-white hover:bg-slate-800 hover:text-white"
+              className="text-foreground hover:bg-slate-800 hover:text-white"
             >
               <X className="h-4 w-4" />
             </Button>

@@ -73,7 +73,7 @@ export function HeroSection() {
               </span>
             </div>
             <div className="absolute left-1/2 top-[48%] h-36.25 w-37.5 -translate-x-1/2 -translate-y-1/2 -rotate-6 drop-shadow-2xl">
-              <div className="absolute inset-x-0 top-0 h-11 bg-orange-300 [clip-path:polygon(50%_0,100%_26%,50%_100%,0_26%)]" />
+              <div className="absolute inset-x-0 top-0 h-11 bg-orange-300 [clip-path:polygon(50%_0,100%_26%,50%_84%,0_26%)]" />
               <div className="absolute left-0 top-9.5 h-25 w-1/2 bg-primary [clip-path:polygon(0_0,100%_25%,100%_100%,0_70%)]" />
               <div className="absolute right-0 top-9.5 h-25 w-1/2 bg-orange-700 [clip-path:polygon(0_25%,100%_0,100%_70%,0_100%)]" />
             </div>
