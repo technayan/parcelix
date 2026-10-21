@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function MyShipmentsPage() {
   return (
     <section className="p-5">
-      <div className="flex flex-col space-y-6 gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col space-y-6  gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">My Shipments</h1>
           <p className="mt-1 text-sm text-muted-foreground">
