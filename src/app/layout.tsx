@@ -1,3 +1,4 @@
+import { ParcelixAIChat } from "@/components/ai-assistant/parcelix-ai-chat";
 import { Toaster } from "@/components/ui/toast";
 import { cn } from "@/lib/utils";
 import Providers from "@/providers";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Providers>
           {children}
+          <ParcelixAIChat />
           <Toaster />
         </Providers>
       </body>
