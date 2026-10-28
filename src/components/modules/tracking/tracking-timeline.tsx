@@ -220,7 +220,7 @@ function TrackingTimeline({ events }: { events: ITrackingEvent[] }) {
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                     <p
                       className={`font-semibold ${
-                        isLatest ? "text-slate-900" : "text-foreground/90"
+                        isLatest ? "text-foreground" : "text-foreground/90"
                       }`}
                     >
                       {formatStatus(event.status)}
